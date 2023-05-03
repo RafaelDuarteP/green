@@ -49,12 +49,11 @@ class ClienteDAO
         return $stmt->affected_rows;
     }
 
-    public function verifica(Cliente $cliente)
+    public function verifica(int $id)
     {
         $query = "UPDATE clientes SET verificado = TRUE WHERE id = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
-        $id = $cliente->getId();
 
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -101,9 +100,9 @@ class ClienteDAO
         return $cliente;
     }
 
-    public function findByToken(string $token): ?Cliente
+    public function findByToken(string $token): int
     {
-        $query = "SELECT * FROM clientes WHERE token = ?";
+        $query = "SELECT id FROM clientes WHERE token = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
         $stmt->bind_param("s", $token);
@@ -112,21 +111,12 @@ class ClienteDAO
         $result = $stmt->get_result();
 
         if ($result->num_rows === 0) {
-            return null;
+            return -1;
         }
 
         $data = $result->fetch_assoc();
-        $cliente = new Cliente();
-        $cliente->setId($data['id'])
-            ->setEmail($data['email'])
-            ->setSenhaHashed($data['senha'])
-            ->setRazaoSocial($data['razao_social'])
-            ->setCnpj($data['cnpj'])
-            ->setNome($data['nome'])
-            ->setToken($data['token'])
-            ->setVerificado($data['verificado']);
 
-        return $cliente;
+        return $data['id'];
     }
 
     public function findByEmailOrCNPJ(string $key): ?Cliente
@@ -167,6 +157,15 @@ class ClienteDAO
         } else {
             return false;
         }
+    }
+
+    public function exists(string $email, string $cnpj): bool
+    {
+        $cliente_email = $this->findByEmailOrCNPJ($email);
+        $cliente_cnpj = $this->findByEmailOrCNPJ($cnpj);
+        if (is_null($cliente_cnpj) or is_null($cliente_email))
+            return true;
+        return false;
     }
 
 }

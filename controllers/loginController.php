@@ -7,7 +7,7 @@ $cliente_dao = new ClienteDAO();
 // Verifica se o usuário já está logado
 if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
     // Se o usuário já estiver logado, redireciona para a página inicial
-    header('Location: /green/home');
+    header('Location: ' . BASE_URL);
     exit;
 }
 
