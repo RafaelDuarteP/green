@@ -3,29 +3,43 @@ require_once './connections/ClienteDAO.php';
 
 $cliente_dao = new ClienteDAO();
 
-// Obtém o token do link
-$token = $_GET['token'];
+if (isset($_GET['token'])):
+    // Obtém o token do link
+    $token = $_GET['token'];
 
-// Verifica se o token foi fornecido
-if (!$token) {
-    echo "Token inválido.";
-    exit;
-}
 
-// Verifica se o token existe no banco de dados
-$id = $cliente_dao->findByToken($token);
+    // Verifica se o token existe no banco de dados
+    $id = $cliente_dao->findByToken($token);
 
-if ($id === -1) {
-    echo "Token inválido.";
-    exit;
-}
+    if ($id === -1):
+        header('Location: ' . BASE_URL . 'confirmacao?tokenInvalido');
+        exit;
+    endif;
 
-// Atualiza o usuário como confirmado no banco de dados
-if ($cliente_dao->verifica($id)) {
-    echo "E-mail confirmado com sucesso!";
-    $_SESSION['user'] = $cliente_dao->findById($id);
-    header('Location: ' . BASE_URL . 'home');
-    exit;
-}
+    // Atualiza o usuário como confirmado no banco de dados
+    if ($cliente_dao->verifica($id)):
+        if (isset($_SESSION['logado']) && $_SESSION['logado'] === true):
+            $_SESSION['user'] = $cliente_dao->findById($id);
+            header('Location: ' . BASE_URL . 'home');
+            exit;
+        else:
+            $msg = "Cadastro realizado com sucesso!";
+            echo "<script>alert('$msg');</script>";
+            header('Location: ' . BASE_URL . 'login');
+            exit;
+        endif;
+    endif;
 
-echo 'confirme seu email';
+else:
+    ?>
+<?php if (isset($_GET['tokenInvalido'])): ?>
+<p>Token invalido, tente reenviar o token por email</p>
+<?php endif;?>
+<form action="" method="get">
+    <p>Digite token enviado pelo email</p>
+    <input type="text" name="token" id="token">
+    <input type="submit" value="">
+</form>
+
+<?php
+endif;

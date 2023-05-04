@@ -1,21 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<link rel="stylesheet" href="./assets/styles/login.css">
+<title>Login</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Titulo</title>
-</head>
+<section class="container-fluid">
+    <div class="row justify-content-between">
+        <div class="col-5 caption-login vh-100">
+            <h1 class="titulo">Area do Cliente</h1>
+            <img class="logo-green" src="./assets/imgs/logo_green_typo.png" alt="Logo GREEN">
+        </div>
 
-<body>
+        <div class="col-4 form-login">
+            <form action="controller/login" method="post" class="row justify-content-center">
+                <h1 class="titulo col-12 text-center">Entrar</h1>
+                <div class="col-12 my-3">
+                    <label for="login">Login:</label>
+                    <input type="text" name="login" id="login" placeholder="Email ou CNPJ">
+                </div>
+                <div class="col-12 my-3">
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha" placeholder="*******">
+                </div>
+                <div class="col-12 my-5">
+                    <button class="btn-login" type="submit">Entrar</button>
+                </div>
+                <div class="col-12 my-3">
+                    <p class="text-center"><img class="brasao-puc" src="./assets/imgs/brasao_puc_minas.png" alt=""></p>
+                </div>
+            </form>
+        </div>
 
-    <form action="controller/login" method="post">
-        <input type="text" name="login" id="login" placeholder="login">
-        <input type="password" name="senha" id="senha">
-        <input type="submit">
-    </form>
-</body>
-
-</html>
+        <div class="col-2 vh-100 cadastrar">
+            <a class="link-cadastro" href="cadastro">
+                <div class="play-circle">
+                    <div class="play-triangle"></div>
+                </div>
+                <p>Cadastrar</p>
+            </a>
+        </div>
+    </div>
+</section>

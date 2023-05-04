@@ -3,6 +3,9 @@
 require_once 'connections/Connection.php';
 require_once 'models/Cliente.php';
 
+// Adiciona os assets
+include 'components/head.php';
+
 // Cria a conexão com o banco de dados
 Connection::getInstance();
 
@@ -16,7 +19,7 @@ $pages = array(
     'dados' => 'pages/dados.php',
     'orcamentos' => 'pages/orcamentos.php',
     'logout' => 'controllers/logoutController.php',
-    'confirmacao' => 'controllers/confirmacaoController.php'
+    'confirmacao' => 'controllers/confirmacaoController.php',
 );
 
 $access_pages = array(
@@ -24,6 +27,7 @@ $access_pages = array(
     'cadastro' => 'pages/cadastro.php',
     'controller/login' => 'controllers/loginController.php',
     'controller/cadastro' => 'controllers/cadastroController.php',
+    'confirmacao' => 'controllers/confirmacaoController.php',
 );
 
 // Define a URL base do projeto
@@ -71,3 +75,5 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
     header('Location: ' . BASE_URL . 'login');
     exit;
 }
+
+include 'components/scripts.php';
