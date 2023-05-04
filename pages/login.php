@@ -2,7 +2,7 @@
 <title>Login</title>
 
 <section class="container-fluid">
-    <div class="row justify-content-between">
+    <div class="row justify-content-evenly">
         <div class="col-5 caption-login vh-100">
             <h1 class="titulo">Area do Cliente</h1>
             <img class="logo-green" src="./assets/imgs/logo_green_typo.png" alt="Logo GREEN">

@@ -31,6 +31,22 @@
     margin-left: 0;
 }
 
+.form-cadastro {
+    max-width: 30vw;
+    margin: auto 0;
+    height: 95vh;
+    border-radius: 30px;
+    padding: 40px;
+    padding-top: 10vh;
+    background: #fc0;
+}
+
+.form-cadastro .titulo {
+    margin-left: 0;
+}
+
+
+
 label {
     width: 100%;
     color: #fff;
@@ -89,6 +105,18 @@ input {
     transform: translate(-35%, -50%);
 }
 
+.play-triangle-cadastro {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 25px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-65%, -50%);
+}
+
 .link-cadastro {
     text-decoration: none;
     color: #004226;
@@ -107,4 +135,8 @@ input {
 
 .cadastrar {
     padding-top: calc(50vh - calc(calc(60px + 15pt)/2));
+}
+
+.form-cadastro label {
+    font-size: 18pt;
 }
