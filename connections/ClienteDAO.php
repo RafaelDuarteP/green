@@ -161,11 +161,14 @@ class ClienteDAO
 
     public function exists(string $email, string $cnpj): bool
     {
+        $exist = false;
         $cliente_email = $this->findByEmailOrCNPJ($email);
         $cliente_cnpj = $this->findByEmailOrCNPJ($cnpj);
-        if (is_null($cliente_cnpj) or is_null($cliente_email))
-            return true;
-        return false;
+        if (!is_null($cliente_cnpj))
+            $exist = true;
+        if (!is_null($cliente_email))
+            $exist = true;
+        return $exist;
     }
 
 }

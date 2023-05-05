@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="./assets/styles/login.css">
+<script src="./assets/scripts/login.js" defer></script>
 <title>Login</title>
 
 <section class="container-fluid">

@@ -34,7 +34,7 @@
 .form-cadastro {
     max-width: 30vw;
     margin: auto 0;
-    height: 95vh;
+    min-height: 99vh;
     border-radius: 30px;
     padding: 40px;
     padding-top: 10vh;
@@ -43,6 +43,7 @@
 
 .form-cadastro .titulo {
     margin-left: 0;
+    font-size: 25pt;
 }
 
 
@@ -53,6 +54,10 @@ label {
     text-align: center;
     font-size: 22pt;
     font-weight: 600;
+}
+
+.form-cadastro label {
+    font-size: 18pt;
 }
 
 input {
@@ -139,4 +144,24 @@ input {
 
 .form-cadastro label {
     font-size: 18pt;
+}
+
+.error,
+.error:focus {
+    border: red solid 2.5px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+}
+
+.form-check label {
+    font-size: large;
+    text-align: start;
+}
+
+.form-check input {
+    width: 2vh;
+    height: 2vh;
 }

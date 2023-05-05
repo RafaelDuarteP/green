@@ -22,7 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //verifica se  o cliente já é cadastrado
     if ($cliente_dao->exists($email, $cnpj)) {
-        header('Location: ' . BASE_URL . 'cadastro?erroExiste');
+        header('Location: ' . BASE_URL . 'cadastro?erroClienteExistente');
+        exit;
     }
 
     // Gera o token de confirmação
