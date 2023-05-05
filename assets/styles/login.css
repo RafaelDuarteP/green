@@ -148,11 +148,11 @@ input {
 
 .error,
 .error:focus {
-    border: red solid 2.5px;
+    border: #ae0000 solid 2.5px;
 }
 
 .error-message {
-    color: red;
+    color: #ae0000;
     text-align: center;
 }
 
@@ -164,4 +164,15 @@ input {
 .form-check input {
     width: 2vh;
     height: 2vh;
+}
+
+.infos {
+    background: #a5a5a5;
+    border-radius: 50px;
+}
+
+.info-message {
+    color: #ae0000;
+    font-size: x-large;
+    font-weight: bold;
 }

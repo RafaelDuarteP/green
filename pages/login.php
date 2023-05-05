@@ -7,6 +7,15 @@
         <div class="col-5 caption-login vh-100">
             <h1 class="titulo">Area do Cliente</h1>
             <img class="logo-green" src="./assets/imgs/logo_green_typo.png" alt="Logo GREEN">
+            <div class="infos">
+                <?php if (isset($_GET['notFind'])): ?>
+                    <p class="col-12 text-center info-message">Usuário não encontrado</p>
+                <?php endif;
+                if (isset($_GET['incorrectPass'])): ?>
+                    <p class="col-12 text-center info-message">Senha incorreta</p>
+                <?php endif; ?>
+            </div>
+
         </div>
 
         <div class="col-4 form-login">
