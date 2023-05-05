@@ -15,9 +15,9 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtém os dados do formulário
     $nome = $_POST['nome'];
-    $email = $_POST['email'];
+    $email = mb_strtolower($_POST['email']);
     $senha = $_POST['senha'];
-    $cnpj = $_POST['cnpj'];
+    $cnpj = preg_replace('/[.\-\/]/', '', $_POST['cnpj']);
     $razao_social = $_POST['razao_social'];
 
     //verifica se  o cliente já é cadastrado

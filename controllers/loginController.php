@@ -19,6 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = $_POST['login'];
     $senha = $_POST['senha'];
 
+    if (strpos($string, "@") !== false) {
+        $login = mb_strtolower($login);
+    } else {
+        $login = preg_replace('/[.\-\/]/', '', $login);
+    }
+
     $cliente = $cliente_dao->findByEmailOrCNPJ($login);
 
     if ($cliente) {

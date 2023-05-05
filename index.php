@@ -46,7 +46,7 @@ $query = $url_parts['query'] ?? '';
 
 // Verifica se a sessão está definida
 if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
-    if (!$_SESSION['user']->getVerificado() and $path != 'confirmacao') {
+    if (!$_SESSION['user']->getVerificado() and $path != 'confirmacao' and $path != 'logout') {
         header('Location: ' . BASE_URL . 'confirmacao');
         exit;
     }
