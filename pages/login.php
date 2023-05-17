@@ -16,6 +16,12 @@
                 <?php endif; ?>
             </div>
 
+            <?php if (isset($_GET['success'])): ?>
+                <div class="infos">
+                    <p class="col-12 text-center info-success">Email confirmado, faça login para continuar</p>
+                </div>
+            <?php endif; ?>
+
         </div>
 
         <div class="col-4 form-login">

@@ -19,7 +19,9 @@ $pages = array(
     'dados' => 'pages/dados.php',
     'orcamentos' => 'pages/orcamentos.php',
     'logout' => 'controllers/logoutController.php',
-    'confirmacao' => 'controllers/confirmacaoController.php',
+    'auth/confirmacao' => 'controllers/confirmacaoController.php',
+    'confirmacao' => 'pages/confirmacao.php',
+
 );
 
 $access_pages = array(
@@ -27,7 +29,8 @@ $access_pages = array(
     'cadastro' => 'pages/cadastro.php',
     'controller/login' => 'controllers/loginController.php',
     'controller/cadastro' => 'controllers/cadastroController.php',
-    'confirmacao' => 'controllers/confirmacaoController.php',
+    'auth/confirmacao' => 'controllers/confirmacaoController.php',
+    'confirmacao' => 'pages/confirmacao.php',
 );
 
 // Define a URL base do projeto

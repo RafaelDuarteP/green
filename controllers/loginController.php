@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = $_POST['login'];
     $senha = $_POST['senha'];
 
-    if (strpos($string, "@") !== false) {
+    if (strpos($login, "@") !== false) {
         $login = mb_strtolower($login);
     } else {
         $login = preg_replace('/[.\-\/]/', '', $login);

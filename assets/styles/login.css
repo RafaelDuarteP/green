@@ -176,3 +176,9 @@ input {
     font-size: x-large;
     font-weight: bold;
 }
+
+.info-success {
+    color: #004226;
+    font-size: x-large;
+    font-weight: bold;
+}
