@@ -25,7 +25,7 @@ if ($cliente_dao->verifica($id)) {
         header('Location: ' . BASE_URL . 'home');
         exit;
     } else {
-        header('Location: ' . BASE_URL . 'login?success');
+        header('Location: ' . BASE_URL . 'login?sucesso');
         exit;
     }
 

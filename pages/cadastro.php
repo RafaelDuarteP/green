@@ -63,12 +63,18 @@
             <img class="logo-green" src="./assets/imgs/logo_green_typo.png" alt="Logo GREEN">
             <div class="infos">
                 <?php if (isset($_GET['erroClienteExistente'])): ?>
-                <p class="col-12 text-center info-message">Usuário já cadastrado</p>
+                    <p class="col-12 text-center info-message">Usuário já cadastrado</p>
                 <?php endif;
                 if (isset($_GET['erroBanco'])): ?>
-                <p class="col-12 text-center info-message">Erro ao cadastrar, tente novamente mais tarde</p>
+                    <p class="col-12 text-center info-message">Erro ao cadastrar, tente novamente mais tarde</p>
                 <?php endif; ?>
             </div>
+            <?php if (isset($_GET['sucesso'])): ?>
+                <div class="infos">
+                    <p class="col-12 text-center info-success">Usuário cadastrado com sucesso, vá para o login para
+                        continuar</p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
