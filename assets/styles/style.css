@@ -1,0 +1,60 @@
+header {
+    background: #ffcc00;
+    color: white;
+    height: max(5vh, 40px);
+}
+
+
+
+header img {
+    height: max(5vh, 40px);
+    width: auto;
+    filter: contrast(0) brightness(100);
+}
+
+header a {
+    color: #fff;
+    font-size: 16pt;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #fff;
+    font-size: 17pt;
+    text-decoration: underline;
+}
+
+.sidebar {
+    background: #fff;
+    height: 100%;
+}
+
+.sidebar p {
+    margin: 0 !important;
+}
+
+.sidebar .divisor {
+    border-bottom: solid 1px #333;
+}
+
+.link-text {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding: 0 30px;
+}
+
+.link-card {
+    font-size: 20px;
+    text-decoration: none;
+    color: #555;
+}
+
+.link-card:hover {
+    color: #004226;
+}
+
+.link-card.active {
+    color: #004226;
+    font-weight: 700;
+}
