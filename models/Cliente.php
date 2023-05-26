@@ -149,35 +149,39 @@ class Cliente
         return $this;
     }
 
-	/**
-	 * @return mixed
-	 */
-	public function getToken():string {
-		return $this->token;
-	}
-	
-	/**
-	 * @param mixed $token 
-	 * @return self
-	 */
-	public function setToken(string $token): self {
-		$this->token = $token;
-		return $this;
-	}
+    /**
+     * @return mixed
+     */
+    public function getToken(): string
+    {
+        return $this->token;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getVerificado():bool {
-		return $this->verificado;
-	}
-	
-	/**
-	 * @param mixed $verificado 
-	 * @return self
-	 */
-	public function setVerificado(bool $verificado): self {
-		$this->verificado = $verificado;
-		return $this;
-	}
+    /**
+     * @param mixed $token 
+     * @return self
+     */
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerificado(): bool
+    {
+        return $this->verificado;
+    }
+
+    /**
+     * @param mixed $verificado 
+     * @return self
+     */
+    public function setVerificado(bool $verificado): self
+    {
+        $this->verificado = $verificado;
+        return $this;
+    }
 }
