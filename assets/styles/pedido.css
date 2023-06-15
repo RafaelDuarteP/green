@@ -1,0 +1,169 @@
+.titulo {
+    border-bottom: 1px solid #333;
+}
+
+.pedido {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.pedido-header {
+    height: max(5vh, 40px);
+    padding: 10px 5px;
+    position: relative;
+}
+
+.pedido-header>span:nth-child(1) {
+    top: 5;
+    position: absolute;
+}
+
+.pedido-header>span:nth-child(2) {
+    top: 20;
+    position: absolute;
+}
+
+.pedido-header>span:nth-child(3) {
+    right: 5;
+    top: 5;
+    position: absolute;
+}
+
+.pedido-header>span>strong {
+    font-size: larger;
+}
+
+.divisor {
+    border-bottom: #333 1px solid;
+}
+
+.img-equip {
+    cursor: pointer;
+}
+
+.img-equip:hover {
+    transform: scale(1.1);
+}
+
+.img-equip.selected {
+    color: #2ab514;
+    font-weight: 900;
+    transform: scale(1.15);
+}
+
+.img-equip>p {
+    font-size: 10px;
+    text-align: center;
+}
+
+.status-equip {
+    background: #d9d9d9;
+    border-radius: 10px;
+}
+
+.status-equip>p {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.status-equip.finalizado {
+    color: #2ab514;
+}
+
+.status-equip.em-and {
+    color: #111;
+}
+
+.details-equip {
+    height: fit-content;
+}
+
+/* TimeLine */
+
+.progress-bar-container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    height: 100px;
+    margin-bottom: 65px;
+}
+
+.progress-bar-container ul {
+    padding: 0;
+    margin: 0;
+    padding-top: 15px;
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+    margin-top: -40px
+}
+
+.progress-bar-container li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 700;
+    transition: all ease 0.2s;
+    vertical-align: bottom;
+    height: 60px;
+    position: relative;
+}
+
+.progress-bar-container li .step-inner {
+    line-height: 0px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
+    transform: translateX(-15px) translateY(80px) rotate(-60deg);
+}
+
+.progress-bar-container li .step-inner span {
+    font-size: smaller;
+}
+
+.progress-bar-container li.active {
+    color: #2ab514;
+}
+
+.progress-bar-container li:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #a1a1a1;
+    margin: auto;
+    border-radius: 15%;
+    margin-top: 75px;
+
+}
+
+.progress-bar-container li.active:after {
+    content: "\2713";
+    color: white;
+    font-size: 15px;
+    background: #2ab514;
+}
+
+.progress-bar-container .line {
+    width: 100%;
+    margin: auto;
+    background: #a1a1a1;
+    height: 6px;
+    position: absolute;
+    top: 57px;
+    z-index: 1;
+    border-radius: 50px;
+}
+
+.progress-bar-container .line-progress {
+    content: " ";
+    height: 100%;
+    background: #2ab514;
+    position: absolute;
+    z-index: 2;
+    border-radius: 50px;
+}
