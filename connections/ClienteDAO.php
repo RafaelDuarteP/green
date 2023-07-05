@@ -14,7 +14,7 @@ class ClienteDAO
 
     public function create(Cliente $cliente)
     {
-        $query = "INSERT INTO clientes (email, senha, razao_social, cnpj, nome, token) 
+        $query = "INSERT INTO cliente (email, senha, razao_social, cnpj, nome, token) 
                   VALUES (?, ?, ?, ?, ?, ?)";
 
         $stmt = $this->db->getConn()->prepare($query);
@@ -33,7 +33,7 @@ class ClienteDAO
 
     public function update(Cliente $cliente)
     {
-        $query = "UPDATE clientes SET email = ?, senha = ?, razao_social = ?, cnpj = ?, nome = ? WHERE id = ?";
+        $query = "UPDATE cliente SET email = ?, senha = ?, razao_social = ?, cnpj = ?, nome = ? WHERE id_cliente = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
         $id = $cliente->getId();
@@ -51,7 +51,7 @@ class ClienteDAO
 
     public function verifica(int $id)
     {
-        $query = "UPDATE clientes SET verificado = TRUE WHERE id = ?";
+        $query = "UPDATE cliente SET verificado = TRUE WHERE id_cliente = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
 
@@ -63,7 +63,7 @@ class ClienteDAO
 
     public function delete(int $id)
     {
-        $query = "DELETE FROM clientes WHERE id = ?";
+        $query = "DELETE FROM cliente WHERE id_cliente = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
         $stmt->bind_param("i", $id);
@@ -74,7 +74,7 @@ class ClienteDAO
 
     public function findById(int $id): ?Cliente
     {
-        $query = "SELECT * FROM clientes WHERE id = ?";
+        $query = "SELECT * FROM cliente WHERE id_cliente = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
         $stmt->bind_param("i", $id);
@@ -88,7 +88,7 @@ class ClienteDAO
 
         $data = $result->fetch_assoc();
         $cliente = new Cliente();
-        $cliente->setId($data['id'])
+        $cliente->setId($data['id_cliente'])
             ->setEmail($data['email'])
             ->setSenhaHashed($data['senha'])
             ->setRazaoSocial($data['razao_social'])
@@ -102,7 +102,7 @@ class ClienteDAO
 
     public function findByToken(string $token): int
     {
-        $query = "SELECT id FROM clientes WHERE token = ?";
+        $query = "SELECT id_cliente FROM cliente WHERE token = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
         $stmt->bind_param("s", $token);
@@ -116,12 +116,12 @@ class ClienteDAO
 
         $data = $result->fetch_assoc();
 
-        return $data['id'];
+        return $data['id_cliente'];
     }
 
     public function findByEmailOrCNPJ(string $key): ?Cliente
     {
-        $query = "SELECT * FROM clientes WHERE email = ? OR cnpj = ?";
+        $query = "SELECT * FROM cliente WHERE email = ? OR cnpj = ?";
 
         $stmt = $this->db->getConn()->prepare($query);
         $stmt->bind_param("ss", $key, $key);
@@ -135,7 +135,7 @@ class ClienteDAO
 
         $data = $result->fetch_assoc();
         $cliente = new Cliente();
-        $cliente->setId($data['id'])
+        $cliente->setId($data['id_cliente'])
             ->setEmail($data['email'])
             ->setSenhaHashed($data['senha'])
             ->setRazaoSocial($data['razao_social'])

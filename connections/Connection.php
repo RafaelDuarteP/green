@@ -46,26 +46,42 @@ class Connection
 
     private function createTables()
     {
-        $table_name = "clientes";
+        $table_name = array(
+            "cliente",
+            "user_control"
+        );
 
         // Define as colunas da tabela
         $columns = array(
-            "id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY",
-            "email VARCHAR(255) NOT NULL UNIQUE KEY",
-            "senha VARCHAR(60) NOT NULL",
-            "razao_social VARCHAR(255) NOT NULL",
-            "cnpj VARCHAR(14) NOT NULL UNIQUE KEY",
-            "nome VARCHAR(255) NOT NULL",
-            "token VARCHAR(32) NOT NULL",
-            "verificado BOOLEAN NOT NULL DEFAULT FALSE",
-            "criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
-            "atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMp"
+            array(
+                "id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY",
+                "email VARCHAR(255) NOT NULL UNIQUE KEY",
+                "senha VARCHAR(60) NOT NULL",
+                "razao_social VARCHAR(255) NOT NULL",
+                "cnpj VARCHAR(14) NOT NULL UNIQUE KEY",
+                "nome VARCHAR(255) NOT NULL",
+                "token VARCHAR(32) NOT NULL",
+                "verificado BOOLEAN NOT NULL DEFAULT FALSE",
+                "criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+                "atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+            ),
+            array(
+                "id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY",
+                "nome VARCHAR(255) NOT NULL",
+                "email VARCHAR(255) NOT NULL UNIQUE KEY",
+                "senha VARCHAR(60) NOT NULL",
+                "criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+                "atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+            )
         );
 
         // Cria a tabela no banco de dados
-        $sql_create_table = "CREATE TABLE IF NOT EXISTS $table_name (" . implode(",", $columns) . ")";
-        if ($this->conn->query($sql_create_table) === FALSE) {
-            die("Erro ao criar tabela: " . $this->conn->error . "\n");
+        for ($i = 0; $i < count($table_name); $i++) {
+            $sql_create_table = "CREATE TABLE IF NOT EXISTS $table_name[$i] (" . implode(",", $columns[$i]) . ")";
+            if ($this->conn->query($sql_create_table) === FALSE) {
+                die("Erro ao criar tabela: " . $this->conn->error . "\n");
+            }
         }
+
     }
 }
