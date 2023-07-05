@@ -33,6 +33,8 @@ $access_pages = array(
     'confirmacao' => 'pages/confirmacao.php',
 );
 
+$control_pages = array();
+
 // Define a URL base do projeto
 define('BASE_URL', '/green/');
 
@@ -55,8 +57,19 @@ if (strpos($path, "controller") !== false && $_SERVER['REQUEST_METHOD'] === 'GET
     exit;
 }
 
+if (isset($_SESSION['control']) && $_SESSION['control'] === true) {
+    if (array_key_exists($path, $control_pages)) {
+        include $control_pages[$path];
+    } else {
+        http_response_code(404);
+        include 'pages/404.php';
+    }
+    exit;
+}
+
 // Verifica se a sessão está definida
 if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
+    // confirma se o usuário está verificado
     if (!$user->getVerificado() and $path != 'confirmacao' and $path != 'logout' and $path != 'auth/confirmacao') {
         header('Location: ' . BASE_URL . 'confirmacao');
         exit;
