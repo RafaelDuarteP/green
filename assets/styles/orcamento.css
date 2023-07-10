@@ -1,0 +1,118 @@
+.btn-novo {
+    font-weight: 800;
+    color: #fff;
+    background: #004226;
+    /* width: 100%; */
+    height: fit-content;
+    border-radius: 3vh;
+    border: none;
+    font-size: 12pt;
+}
+
+.area-sup {
+    border-bottom: 1px solid #333;
+}
+
+.card-orcamento {
+    font-size: 14pt;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 3vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr .5fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.card-orcamento button {
+    font-weight: 800;
+    color: #fff;
+    height: fit-content;
+    border-radius: 10px;
+    border: none;
+    font-size: 12pt;
+}
+
+.card-orcamento button.btn-baixar {
+    background: #004226;
+}
+
+.card-orcamento button.btn-cancelar {
+    background: #ae0000;
+}
+
+.card-orcamento button.btn-assinar {
+    background: #fc0;
+}
+
+.card-orcamento button.btn-disabled {
+    background: #a5a5a5;
+    cursor: default;
+}
+
+.status-card {
+    background: #d9d9d9;
+    border-radius: 20px;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+
+}
+
+.caption.pendente {
+    color: #00a3ff;
+}
+
+.caption.aguardando {
+    color: #fc0;
+}
+
+.caption.cancelado {
+    color: #ae0000;
+}
+
+.caption.aprovado {
+    color: #2ab514;
+}
+
+.icon.pendente {
+    background: #00a3ff;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.icon.aguardando {
+    padding-top: 5px;
+    font-size: 15px;
+    background: #fc0;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.icon.cancelado {
+    background: #ae0000;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.icon.aprovado {
+    background: #2ab514;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.caption {
+    display: inline-block;
+    margin: 0 0 0 5px !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+
+.icon i {
+    margin: auto auto;
+}
