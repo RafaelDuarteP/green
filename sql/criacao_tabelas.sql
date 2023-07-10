@@ -33,13 +33,27 @@ CREATE TABLE IF NOT EXISTS pedido (
 CREATE TABLE IF NOT EXISTS equipamento (
     id_equipamento INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
+    descricao VARCHAR(255) NOT NULL,
+    tipo ENUM("COLETOR","RESERVATORIO","MODULO"),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS teste (
     id_teste INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    valor DECIMAL(10,2),
+    descricao VARCHAR(255),
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS equipamento_teste(
+    id_equipamento INT(11) NOT NULL,
+    id_teste INT(11) NOT NULL,
     status ENUM("EM_ANDAMENTO", "FINALIZADO"),
+    PRIMARY KEY (id_equipamento, id_teste),
+    FOREIGN KEY (id_equipamento) REFERENCES equipamento(id_equipamento),
+    FOREIGN KEY (id_teste) REFERENCES teste(id_teste),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -51,8 +65,3 @@ ADD FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente);
 ALTER TABLE equipamento
 ADD COLUMN id_pedido INT(11) NOT NULL,
 ADD FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido);
-
-ALTER TABLE teste
-ADD COLUMN id_equipamento INT(11) NOT NULL,
-ADD FOREIGN KEY (id_equipamento) REFERENCES equipamento(id_equipamento);
-
