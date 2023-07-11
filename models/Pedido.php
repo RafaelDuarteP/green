@@ -12,7 +12,7 @@ class Pedido
     /**
      * @return mixed
      */
-    public function getData(): DateTime
+    public function getData(): string
     {
         return $this->data;
     }
@@ -21,7 +21,7 @@ class Pedido
      * @param mixed $data 
      * @return self
      */
-    public function setData(DateTime $data): self
+    public function setData(string $data): self
     {
         $this->data = $data;
         return $this;

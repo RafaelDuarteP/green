@@ -1,5 +1,9 @@
 <?php
 
+require_once './connections/TesteDAO.php';
+require_once './models/Equipamento.php';
+require_once './models/TipoEquipamento.php';
+
 class EquipamentoDAO
 {
     private $db;
@@ -12,11 +16,12 @@ class EquipamentoDAO
     public function findById(int $id): Equipamento
     {
         $testeDao = new TesteDAO();
-        $sql = "SELECT * FROM equipamento WHERE id_equipamento = :id";
+        $sql = "SELECT * FROM equipamento WHERE id_equipamento = ?";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bind_param('i', $id);
         $stmt->execute();
-        $data = $stmt->fetch_assoc();
+        $result = $stmt->get_result();
+        $data = $result->fetch_assoc();
         switch ($data['tipo']) {
             case "COLETOR":
                 $tipo = TipoEquipamentoEnum::COLETOR;
@@ -50,12 +55,11 @@ class EquipamentoDAO
                 $tipo = "RESERVATORIO";
                 break;
         }
-        $sql = "INSERT INTO equipamento (nome, descricao, tipo, id_pedido) VALUES (:nome, :descricao, :tipo, :id_pedido)";
+        $sql = "INSERT INTO equipamento (nome, descricao, tipo, id_pedido) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bindValue(':nome', $equipamento->getNome());
-        $stmt->bindValue(':descricao', $equipamento->getDescricao());
-        $stmt->bindValue(':tipo', $tipo);
-        $stmt->bindValue(':id_pedido', $idPedido);
+        $nome = $equipamento->getNome();
+        $descricao = $equipamento->getDescricao();
+        $stmt->bind_param('sssi', $nome, $descricao, $tipo, $idPedido);
         $stmt->execute();
 
         $equipamento->setId($stmt->insert_id);
@@ -64,10 +68,11 @@ class EquipamentoDAO
 
         foreach ($equipamento->getTestes() as $teste) {
             $teste = $testeDao->create($teste);
-            $sql = "INSERT INTO equipamento_teste (id_equipamento, id_teste, status) VALUES (:id_equipamento, :id_teste, 'EM_ANDAMENTO')";
+            $sql = "INSERT INTO equipamento_teste (id_equipamento, id_teste, status) VALUES (?, ?, 'EM_ANDAMENTO')";
             $stmt = $this->db->getConn()->prepare($sql);
-            $stmt->bindValue(':id_equipamento', $equipamento->getId());
-            $stmt->bindValue(':id_teste', $teste->getId());
+            $idEquipamento = $equipamento->getId();
+            $idTeste = $teste->getId();
+            $stmt->bind_param('ii', $idEquipamento, $idTeste);
             $stmt->execute();
         }
 
@@ -77,13 +82,14 @@ class EquipamentoDAO
     public function findAll(): array
     {
         $testeDao = new TesteDAO();
-        $sql = "SELECT * FROM equipamento";
+        $sql = "SELECT tipo, id_equipamento, nome, descricao FROM equipamento";
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->execute();
-        $data = $stmt->fetch_all(MYSQLI_ASSOC);
+        $result = $stmt->get_result();
+        $data = $result->fetch_all();
         $equipamentos = [];
         foreach ($data as $equipamento) {
-            switch ($equipamento['tipo']) {
+            switch ($equipamento[0]) {
                 case "COLETOR":
                     $tipo = TipoEquipamentoEnum::COLETOR;
                     break;
@@ -95,26 +101,29 @@ class EquipamentoDAO
                     break;
             }
             $equipamentos[] = (new Equipamento())
-                ->setId($equipamento['id_equipamento'])
-                ->setNome($equipamento['nome'])
-                ->setDescricao($equipamento['descricao'])
+                ->setId($equipamento[1])
+                ->setNome($equipamento[2])
+                ->setDescricao($equipamento[3])
                 ->setTipo($tipo)
-                ->setTestes($testeDao->findByEquipamento($equipamento['id_equipamento']));
+                ->setTestes($testeDao->findByEquipamento($equipamento[1]));
         }
+
         return $equipamentos;
     }
 
     public function findByPedido(int $id): array
     {
         $testeDao = new TesteDAO();
-        $sql = "SELECT * FROM equipamento WHERE id_pedido = :id";
+        $sql = "SELECT tipo, id_equipamento, nome, descricao FROM equipamento WHERE id_pedido = ?";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bind_param('i', $id);
         $stmt->execute();
-        $data = $stmt->fetch_all(MYSQLI_ASSOC);
+        $result = $stmt->get_result();
+        $data = $result->fetch_all();
         $equipamentos = [];
+
         foreach ($data as $equipamento) {
-            switch ($equipamento['tipo']) {
+            switch ($equipamento[0]) {
                 case "COLETOR":
                     $tipo = TipoEquipamentoEnum::COLETOR;
                     break;
@@ -126,12 +135,13 @@ class EquipamentoDAO
                     break;
             }
             $equipamentos[] = (new Equipamento())
-                ->setId($equipamento['id_equipamento'])
-                ->setNome($equipamento['nome'])
-                ->setDescricao($equipamento['descricao'])
+                ->setId($equipamento[1])
+                ->setNome($equipamento[2])
+                ->setDescricao($equipamento[3])
                 ->setTipo($tipo)
-                ->setTestes($testeDao->findByEquipamento($equipamento['id_equipamento']));
+                ->setTestes($testeDao->findByEquipamento($equipamento[1]));
         }
+
         return $equipamentos;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-
+require_once './models/StatusTeste.php';
 class Equipamento
 {
     private $id;
@@ -72,6 +72,12 @@ class Equipamento
      */
     public function getTestes(): array
     {
+        usort(
+            $this->testes,
+            function ($a, $b) {
+                return $a->compareTo($b);
+            }
+        );
         return $this->testes;
     }
 
@@ -125,5 +131,15 @@ class Equipamento
     {
         $this->tipo = $tipo;
         return $this;
+    }
+
+    public function finalizado(): bool
+    {
+        foreach ($this->testes as $teste) {
+            if ($teste->getStatus() === StatusTesteEnum::EM_ANDAMENTO) {
+                return false;
+            }
+        }
+        return true;
     }
 }

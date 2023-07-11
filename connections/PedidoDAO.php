@@ -1,5 +1,9 @@
 <?php
 
+require_once "./connections/EquipamentoDAO.php";
+require_once "./models/Pedido.php";
+require_once "./models/StatusPedido.php";
+
 class PedidoDAO
 {
 
@@ -27,17 +31,12 @@ class PedidoDAO
                 $status = "CANCELADO";
                 break;
         }
-        $sql = "INSERT INTO pedido (data, numero, total, status, id_cliente) VALUES (:data, :numero, :total, :status, :id_cliente)";
+        $sql = "INSERT INTO pedido (data, numero, total, status, id_cliente) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bindValue(':data', $pedido->getData());
-        $stmt->bindValue(':numero', $pedido->getNumero());
-        $stmt->bindValue(':total', $pedido->getTotal());
-        $stmt->bindValue(':status', $status);
-        $stmt->bindValue(':id_cliente', $idCliente);
+        $stmt->bind_param("sssssi", $pedido->getData(), $pedido->getNumero(), $pedido->getTotal(), $status, $idCliente);
         $stmt->execute();
 
         $pedido->setId($stmt->insert_id);
-        $this->db->close();
 
         foreach ($pedido->getEquipamentos() as $equipamento) {
             $equipamentoDao = new EquipamentoDAO();
@@ -50,12 +49,11 @@ class PedidoDAO
     public function findById(int $id): Pedido
     {
         $equipamentoDao = new EquipamentoDAO();
-        $sql = "SELECT * FROM pedido WHERE id_pedido = :id";
+        $sql = "SELECT * FROM pedido WHERE id_pedido = ?";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bind_param('i', $id);
         $stmt->execute();
         $data = $stmt->fetch_assoc();
-        $this->db->close();
         switch ($data['status']) {
             case "PENDENTE":
                 $status = StatusPedidoEnum::PENDENTE;
@@ -83,15 +81,19 @@ class PedidoDAO
     public function findAll(): array
     {
         $equipamentoDao = new EquipamentoDAO();
-        $sql = "SELECT * FROM pedido";
+        $sql = "SELECT  status, id_pedido, data, numero, total  FROM pedido";
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->execute();
-        $data = $stmt->fetch_all(MYSQLI_ASSOC);
-        $this->db->close();
+
+        $result = $stmt->get_result();
+
+        $data = $result->fetch_all();
+
         $pedidos = [];
 
+        $pedidos = [];
         foreach ($data as $item) {
-            switch ($item['status']) {
+            switch ($item[0]) {
                 case "PENDENTE":
                     $status = StatusPedidoEnum::PENDENTE;
                     break;
@@ -106,12 +108,12 @@ class PedidoDAO
                     break;
             }
             $pedido = new Pedido();
-            $pedido->setId($item['id_pedido'])
-                ->setData($item['data'])
-                ->setNumero($item['numero'])
-                ->setTotal($item['total'])
+            $pedido->setId($item[1])
+                ->setData($item[2])
+                ->setNumero($item[3])
+                ->setTotal($item[4])
                 ->setStatus($status)
-                ->setEquipamentos($equipamentoDao->findByPedido($item['id_pedido']));
+                ->setEquipamentos($equipamentoDao->findByPedido($item[1]));
             $pedidos[] = $pedido;
         }
         return $pedidos;
@@ -120,16 +122,17 @@ class PedidoDAO
     public function findByCliente(int $idCliente): array
     {
         $equipamentoDao = new EquipamentoDAO();
-        $sql = "SELECT * FROM pedido WHERE id_cliente = :id_cliente";
+        $sql = "SELECT status, id_pedido, data, numero, total FROM pedido WHERE id_cliente = ?";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bindValue(':id_cliente', $idCliente);
+        $stmt->bind_param('i', $idCliente);
         $stmt->execute();
-        $data = $stmt->fetch_all(MYSQLI_ASSOC);
-        $pedidos = [];
-        $this->db->close();
 
+        $result = $stmt->get_result();
+        $data = $result->fetch_all();
+
+        $pedidos = [];
         foreach ($data as $item) {
-            switch ($item['status']) {
+            switch ($item[0]) {
                 case "PENDENTE":
                     $status = StatusPedidoEnum::PENDENTE;
                     break;
@@ -144,14 +147,54 @@ class PedidoDAO
                     break;
             }
             $pedido = new Pedido();
-            $pedido->setId($item['id_pedido'])
-                ->setData($item['data'])
-                ->setNumero($item['numero'])
-                ->setTotal($item['total'])
+            $pedido->setId($item[1])
+                ->setData($item[2])
+                ->setNumero($item[3])
+                ->setTotal($item[4])
                 ->setStatus($status)
-                ->setEquipamentos($equipamentoDao->findByPedido($item['id_pedido']));
+                ->setEquipamentos($equipamentoDao->findByPedido($item[1]));
             $pedidos[] = $pedido;
         }
+
+        return $pedidos;
+    }
+    public function findAprovadoByCliente(int $idCliente): array
+    {
+        $equipamentoDao = new EquipamentoDAO();
+        $sql = "SELECT status, id_pedido, data, numero, total FROM pedido WHERE id_cliente = ? and status = 'APROVADO'";
+        $stmt = $this->db->getConn()->prepare($sql);
+        $stmt->bind_param('i', $idCliente);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $data = $result->fetch_all();
+
+        $pedidos = [];
+        foreach ($data as $item) {
+            switch ($item[0]) {
+                case "PENDENTE":
+                    $status = StatusPedidoEnum::PENDENTE;
+                    break;
+                case "APROVADO":
+                    $status = StatusPedidoEnum::APROVADO;
+                    break;
+                case "AGUARDANDO":
+                    $status = StatusPedidoEnum::AGUARDANDO;
+                    break;
+                case "CANCELADO":
+                    $status = StatusPedidoEnum::CANCELADO;
+                    break;
+            }
+            $pedido = new Pedido();
+            $pedido->setId($item[1])
+                ->setData($item[2])
+                ->setNumero($item[3])
+                ->setTotal($item[4])
+                ->setStatus($status)
+                ->setEquipamentos($equipamentoDao->findByPedido($item[1]));
+            $pedidos[] = $pedido;
+        }
+
         return $pedidos;
     }
 

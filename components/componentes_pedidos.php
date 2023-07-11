@@ -1,6 +1,6 @@
 <?php
 
-function getPedido(bool $status)
+function getPedido(bool $status, string $nome, int $tipo)
 {
 
     if ($status === true) {
@@ -14,7 +14,7 @@ function getPedido(bool $status)
     echo <<<HTML
         <div class="col-1 px-1 py-1 img-equip">
             <img class="w-100" src="./assets/imgs/placeholder.png" alt="">
-            <p>Equipamento x</p>
+            <p>{$nome}</p>
             <div class="status-equip {$class}">
                 {$text}
             </div>

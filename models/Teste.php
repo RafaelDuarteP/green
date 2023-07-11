@@ -7,6 +7,8 @@ class Teste
     private $valor;
     private $descricao;
 
+    private $data;
+
     /**
      * @return mixed
      */
@@ -77,5 +79,30 @@ class Teste
     {
         $this->descricao = $descricao;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getData(): string
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param mixed $data 
+     * @return self
+     */
+    public function setData(string $data): self
+    {
+        $this->data = $data;
+        return $this;
+    }
+    public function compareTo($other): int
+    {
+        if ($this->status == $other->status) {
+            return 0;
+        }
+        return ($this->status > $other->status) ? -1 : 1;
     }
 }
