@@ -24,7 +24,7 @@ include_once "./components/header.php";
                 </div>
 
                 <?php
-                echo "<pre>";
+                // echo "<pre>";
 
                 $pedidoDAO = new PedidoDAO();
                 $pedidos = $pedidoDAO->findAprovadoByCliente($user->getId());
@@ -35,74 +35,74 @@ include_once "./components/header.php";
                 // $testeDAO = new TesteDAO();
                 // var_dump($testeDAO->findAll());
                 
-                echo "</pre>";
+                // echo "</pre>";
 
                 foreach ($pedidos as $pedido):
                     ?>
 
-                    <div class="col-11 pedido mt-4">
-                        <div class="pedido-header">
-                            <span>Pedido nº: <strong>
-                                    <?php echo $pedido->getNumero() ?>
-                                </strong></span>
-                            <span>
-                                <?php echo $pedido->getData() ?>
-                            </span>
-                            <span>Total: <strong>R$
-                                    <?php echo $pedido->getTotal() ?>
-                                </strong></span>
-                        </div>
-                        <div class="divisor"></div>
-                        <div class="pedido-body">
-                            <h2>Equipamentos:</h2>
-                            <div class="area-equip row justify-content-evenly">
-                                <?php
+                <div class="col-11 pedido mt-4">
+                    <div class="pedido-header">
+                        <span>Pedido nº: <strong>
+                                <?php echo $pedido->getNumero() ?>
+                            </strong></span>
+                        <span>
+                            <?php echo $pedido->getData() ?>
+                        </span>
+                        <span>Total: <strong>R$
+                                <?php echo $pedido->getTotal() ?>
+                            </strong></span>
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="pedido-body">
+                        <h2>Equipamentos:</h2>
+                        <div class="area-equip row justify-content-evenly">
+                            <?php
                                 include_once "./components/componentes_pedidos.php";
                                 foreach ($pedido->getEquipamentos() as $equipamento) {
                                     getPedido($equipamento->finalizado(), $equipamento->getNome(), $equipamento->getTipo());
                                 }
                                 ?>
-                            </div>
-                            <div class="details-equip px-5">
-                                <?php
+                        </div>
+                        <div class="details-equip px-5">
+                            <?php
                                 foreach ($pedido->getEquipamentos() as $equipamento):
                                     ?>
-                                    <div class="detail d-none">
-                                        <div class="progress-bar-container">
-                                            <div class="line">
-                                                <div class="line-progress"></div>
-                                            </div>
-                                            <ul class="progress-list">
-                                                <?php
+                            <div class="detail d-none">
+                                <div class="progress-bar-container">
+                                    <div class="line">
+                                        <div class="line-progress"></div>
+                                    </div>
+                                    <ul class="progress-list">
+                                        <?php
                                                 foreach ($equipamento->getTestes() as $teste):
                                                     ?>
-                                                    <li class="step <?php if ($teste->getStatus() == StatusTesteEnum::FINALIZADO) {
+                                        <li class="step <?php if ($teste->getStatus() == StatusTesteEnum::FINALIZADO) {
                                                         echo 'active';
                                                     } ?>">
-                                                        <div class="step-inner">
-                                                            <p>
-                                                                <?php echo $teste->getDescricao() ?>
-                                                            </p>
-                                                            <span>
-                                                                <?php echo $teste->getData() ?>
-                                                            </span>
-                                                        </div>
-                                                    </li>
-                                                    <?php
+                                            <div class="step-inner">
+                                                <p>
+                                                    <?php echo $teste->getNome() ?>
+                                                </p>
+                                                <span>
+                                                    <?php echo $teste->getData() ?>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <?php
                                                 endforeach;
                                                 ?>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    </ul>
+                                </div>
+                            </div>
 
-                                    <?php
+                            <?php
                                 endforeach;
                                 ?>
-                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <?php
+                <?php
                 endforeach;
                 ?>
             </div>

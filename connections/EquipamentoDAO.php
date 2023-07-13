@@ -67,7 +67,6 @@ class EquipamentoDAO
         $testeDao = new TesteDAO();
 
         foreach ($equipamento->getTestes() as $teste) {
-            $teste = $testeDao->create($teste);
             $sql = "INSERT INTO equipamento_teste (id_equipamento, id_teste, status) VALUES (?, ?, 'EM_ANDAMENTO')";
             $stmt = $this->db->getConn()->prepare($sql);
             $idEquipamento = $equipamento->getId();
@@ -143,5 +142,13 @@ class EquipamentoDAO
         }
 
         return $equipamentos;
+    }
+
+    public function addTeste(int $idEquipamento, int $idTeste): bool
+    {
+        $sql = "INSERT INTO equipamento_teste (id_equipamento, id_teste, status) VALUES (?, ?, 'EM_ANDAMENTO')";
+        $stmt = $this->db->getConn()->prepare($sql);
+        $stmt->bind_param('ii', $idEquipamento, $idTeste);
+        return $stmt->execute();
     }
 }

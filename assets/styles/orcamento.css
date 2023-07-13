@@ -2,11 +2,16 @@
     font-weight: 800;
     color: #fff;
     background: #004226;
-    /* width: 100%; */
+    text-decoration: none;
     height: fit-content;
     border-radius: 3vh;
     border: none;
     font-size: 12pt;
+}
+
+.btn-novo:hover {
+    background: #005a3c;
+    color: #fff;
 }
 
 .area-sup {

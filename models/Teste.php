@@ -6,6 +6,8 @@ class Teste
     private $status;
     private $valor;
     private $descricao;
+    private $nome;
+    private $tipoEquipamento;
 
     private $data;
 
@@ -104,5 +106,41 @@ class Teste
             return 0;
         }
         return ($this->status > $other->status) ? -1 : 1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param mixed $nome 
+     * @return self
+     */
+    public function setNome(string $nome): self
+    {
+        $this->nome = $nome;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipoEquipamento(): int
+    {
+        return $this->tipoEquipamento;
+    }
+
+    /**
+     * @param mixed $tipoEquipamento 
+     * @return self
+     */
+    public function setTipoEquipamento(int $tipoEquipamento): self
+    {
+        $this->tipoEquipamento = $tipoEquipamento;
+        return $this;
     }
 }

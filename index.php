@@ -18,10 +18,11 @@ $pages = array(
     'pedidos' => 'pages/pedidos.php',
     'dados' => 'pages/dados.php',
     'orcamentos' => 'pages/orcamentos.php',
+    'novo-orcamento' => 'pages/novo_orcamento.php',
     'logout' => 'controllers/logoutController.php',
     'auth/confirmacao' => 'controllers/confirmacaoController.php',
     'confirmacao' => 'pages/confirmacao.php',
-
+    'controller/novo-orcamento' => 'controllers/novoOrcamentoController.php',
 );
 
 $access_pages = array(
@@ -42,7 +43,7 @@ define('BASE_URL', '/green/');
 $url = $_SERVER['REQUEST_URI'];
 
 // Remove a barra no início da URL, se houver
-$url = ltrim($url, BASE_URL);
+$url = str_replace(BASE_URL, '', $url);
 
 // Separa a URL em suas partes constituintes
 $url_parts = parse_url($url);
@@ -50,6 +51,7 @@ $path = $url_parts['path'];
 $query = $url_parts['query'] ?? '';
 
 $user = $_SESSION['user'] ?? null;
+
 
 //verifica se o acesso é por POST
 if (strpos($path, "controller") !== false && $_SERVER['REQUEST_METHOD'] === 'GET') {

@@ -33,7 +33,10 @@ class PedidoDAO
         }
         $sql = "INSERT INTO pedido (data, numero, total, status, id_cliente) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bind_param("sssssi", $pedido->getData(), $pedido->getNumero(), $pedido->getTotal(), $status, $idCliente);
+        $data = $pedido->getData();
+        $numero = $pedido->getNumero();
+        $total = $pedido->getTotal();
+        $stmt->bind_param("ssssi", $data, $numero, $total, $status, $idCliente);
         $stmt->execute();
 
         $pedido->setId($stmt->insert_id);
@@ -162,6 +165,45 @@ class PedidoDAO
     {
         $equipamentoDao = new EquipamentoDAO();
         $sql = "SELECT status, id_pedido, data, numero, total FROM pedido WHERE id_cliente = ? and status = 'APROVADO'";
+        $stmt = $this->db->getConn()->prepare($sql);
+        $stmt->bind_param('i', $idCliente);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $data = $result->fetch_all();
+
+        $pedidos = [];
+        foreach ($data as $item) {
+            switch ($item[0]) {
+                case "PENDENTE":
+                    $status = StatusPedidoEnum::PENDENTE;
+                    break;
+                case "APROVADO":
+                    $status = StatusPedidoEnum::APROVADO;
+                    break;
+                case "AGUARDANDO":
+                    $status = StatusPedidoEnum::AGUARDANDO;
+                    break;
+                case "CANCELADO":
+                    $status = StatusPedidoEnum::CANCELADO;
+                    break;
+            }
+            $pedido = new Pedido();
+            $pedido->setId($item[1])
+                ->setData($item[2])
+                ->setNumero($item[3])
+                ->setTotal($item[4])
+                ->setStatus($status)
+                ->setEquipamentos($equipamentoDao->findByPedido($item[1]));
+            $pedidos[] = $pedido;
+        }
+
+        return $pedidos;
+    }
+    public function findOrcamentoByCliente(int $idCliente): array
+    {
+        $equipamentoDao = new EquipamentoDAO();
+        $sql = "SELECT status, id_pedido, data, numero, total FROM pedido WHERE id_cliente = ? and status != 'APROVADO'";
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->bind_param('i', $idCliente);
         $stmt->execute();
