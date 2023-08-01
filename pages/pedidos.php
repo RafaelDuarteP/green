@@ -25,7 +25,7 @@ include_once "./components/header.php";
 
                 <?php
                 // echo "<pre>";
-
+                
                 $pedidoDAO = new PedidoDAO();
                 $pedidos = $pedidoDAO->findAprovadoByCliente($user->getId());
 
@@ -36,7 +36,7 @@ include_once "./components/header.php";
                 // var_dump($testeDAO->findAll());
                 
                 // echo "</pre>";
-
+                
                 foreach ($pedidos as $pedido):
                     ?>
 
@@ -59,7 +59,7 @@ include_once "./components/header.php";
                             <?php
                                 include_once "./components/componentes_pedidos.php";
                                 foreach ($pedido->getEquipamentos() as $equipamento) {
-                                    getPedido($equipamento->finalizado(), $equipamento->getNome(), $equipamento->getTipo());
+                                    getPedido($equipamento->finalizado(), $equipamento->getModelo(), $equipamento->getTipo());
                                 }
                                 ?>
                         </div>
@@ -83,9 +83,9 @@ include_once "./components/header.php";
                                                 <p>
                                                     <?php echo $teste->getNome() ?>
                                                 </p>
-                                                <span>
+                                                <p>
                                                     <?php echo $teste->getData() ?>
-                                                </span>
+                                                </p>
                                             </div>
                                         </li>
                                         <?php

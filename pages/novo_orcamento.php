@@ -52,16 +52,16 @@ function addEquipamento() {
                         <input class="form-control" type="text" name="nome[]" id="nome">
                     </div>
                     <div class="descricao col-5 mt-2">
-                        <label class="form-label" for="descricao">Marca:</label>
+                        <label class="form-label" for="descricao">Características:</label>
                         <input class="form-control" type="text" name="descricao[]" id="descricao">
                     </div>
                     <div class="tipo col-4 mt-2">
                         <label class="form-label" for="tipo">Tipo do equipamento:</label>
                         <select class="form-select" name="tipo[]" id="tipo">
                             <option value="<?php echo TipoEquipamentoEnum::COLETOR ?>">COLETOR SOLAR</option>
-                            <option value="<?php echo TipoEquipamentoEnum::MODULO ?>">MÓDULO FOTOVOLTAICO</option>
                             <option value="<?php echo TipoEquipamentoEnum::RESERVATORIO ?>">RESERVATÓRIO TÉRMICO
                             </option>
+                            <option value="<?php echo TipoEquipamentoEnum::MODULO ?>">MÓDULO FOTOVOLTAICO</option>
                         </select>
                     </div>
                     <div class="testes col-9 mt-2">

@@ -35,7 +35,7 @@ class EquipamentoDAO
         }
         $equipamento = new Equipamento();
         $equipamento->setId($data['id_equipamento'])
-            ->setNome($data['nome'])
+            ->setModelo($data['modelo'])
             ->setDescricao($data['descricao'])
             ->setTipo($tipo)
             ->setTestes($testeDao->findByEquipamento($data['id_equipamento']));
@@ -55,11 +55,11 @@ class EquipamentoDAO
                 $tipo = "RESERVATORIO";
                 break;
         }
-        $sql = "INSERT INTO equipamento (nome, descricao, tipo, id_pedido) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO equipamento (modelo, descricao, tipo, id_pedido) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->getConn()->prepare($sql);
-        $nome = $equipamento->getNome();
+        $modelo = $equipamento->getModelo();
         $descricao = $equipamento->getDescricao();
-        $stmt->bind_param('sssi', $nome, $descricao, $tipo, $idPedido);
+        $stmt->bind_param('sssi', $modelo, $descricao, $tipo, $idPedido);
         $stmt->execute();
 
         $equipamento->setId($stmt->insert_id);
@@ -81,7 +81,7 @@ class EquipamentoDAO
     public function findAll(): array
     {
         $testeDao = new TesteDAO();
-        $sql = "SELECT tipo, id_equipamento, nome, descricao FROM equipamento";
+        $sql = "SELECT tipo, id_equipamento, modelo, descricao FROM equipamento";
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -101,7 +101,7 @@ class EquipamentoDAO
             }
             $equipamentos[] = (new Equipamento())
                 ->setId($equipamento[1])
-                ->setNome($equipamento[2])
+                ->setModelo($equipamento[2])
                 ->setDescricao($equipamento[3])
                 ->setTipo($tipo)
                 ->setTestes($testeDao->findByEquipamento($equipamento[1]));
@@ -113,7 +113,7 @@ class EquipamentoDAO
     public function findByPedido(int $id): array
     {
         $testeDao = new TesteDAO();
-        $sql = "SELECT tipo, id_equipamento, nome, descricao FROM equipamento WHERE id_pedido = ?";
+        $sql = "SELECT tipo, id_equipamento, modelo, descricao FROM equipamento WHERE id_pedido = ?";
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->bind_param('i', $id);
         $stmt->execute();
@@ -135,7 +135,7 @@ class EquipamentoDAO
             }
             $equipamentos[] = (new Equipamento())
                 ->setId($equipamento[1])
-                ->setNome($equipamento[2])
+                ->setModelo($equipamento[2])
                 ->setDescricao($equipamento[3])
                 ->setTipo($tipo)
                 ->setTestes($testeDao->findByEquipamento($equipamento[1]));

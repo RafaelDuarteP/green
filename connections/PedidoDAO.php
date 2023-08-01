@@ -240,4 +240,16 @@ class PedidoDAO
         return $pedidos;
     }
 
+    public function proximoNumero(): int
+    {
+        $sql = "SELECT proximo_numero()";
+        $stmt = $this->db->getConn()->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $data = $result->fetch_assoc();
+
+        return $data['proximo_numero()'];
+    }
+
 }

@@ -46,6 +46,12 @@
     transform: scale(1.1);
 }
 
+.img-equip .imagem {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
 .img-equip.selected {
     color: #2ab514;
     font-weight: 900;
@@ -77,6 +83,10 @@
 
 .details-equip {
     height: fit-content;
+}
+
+.detail {
+    height: 300px;
 }
 
 /* TimeLine */
@@ -113,12 +123,15 @@
 }
 
 .progress-bar-container li .step-inner {
-    line-height: 0px;
+    line-height: 14px;
+    text-align: right;
     position: absolute;
-    width: 100%;
-    bottom: 0;
+    width: 250px;
+    height: 30px;
+    top: 330%;
+    right: 20%;
     font-size: 14px;
-    transform: translateX(-15px) translateY(80px) rotate(-60deg);
+    transform: rotate(-60deg);
 }
 
 .progress-bar-container li .step-inner span {

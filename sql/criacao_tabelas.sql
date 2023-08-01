@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS cliente (
 CREATE TABLE IF NOT EXISTS pedido (
 	id_pedido INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     data DATE NOT NULL,
-    numero INT(11) NOT NULL UNIQUE KEY,
+    numero INT NOT NULL UNIQUE KEY,
     total DECIMAL(10,2),
     status ENUM("PENDENTE", "AGUARDANDO", "CANCELADO", "APROVADO", "FINALIZADO"),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS pedido (
 
 CREATE TABLE IF NOT EXISTS equipamento (
     id_equipamento INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
+    modelo VARCHAR(255) NOT NULL,
     descricao VARCHAR(255) NOT NULL,
     tipo ENUM("COLETOR","RESERVATORIO","MODULO"),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -43,6 +43,8 @@ CREATE TABLE IF NOT EXISTS teste (
     id_teste INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     valor DECIMAL(10,2),
     descricao VARCHAR(255),
+    nome VARCHAR(255),
+    tipo_equipamento ENUM("COLETOR","RESERVATORIO","MODULO"),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -65,3 +67,21 @@ ADD FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente);
 ALTER TABLE equipamento
 ADD COLUMN id_pedido INT(11) NOT NULL,
 ADD FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido);
+
+CREATE TABLE IF NOT EXISTS numeracao_pedido (
+	id INT NOT null primary key,
+    numero INT NOT NULL DEFAULT 1000
+);
+
+INSERT into numeracao_pedido (id, numero) values (1,1000);
+
+DELIMITER //
+CREATE FUNCTION proximo_numero() RETURNS INT
+BEGIN
+	DECLARE valor INT;
+    UPDATE numeracao_pedido SET numero = numero + 1 WHERE id = 1;
+    SELECT numero INTO valor FROM numeracao_pedido WHERE id = 1;
+    RETURN valor;
+END;
+//
+DELIMITER ;

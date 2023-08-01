@@ -3,7 +3,7 @@ require_once './models/StatusTeste.php';
 class Equipamento
 {
     private $id;
-    private $nome;
+    private $modelo;
     private $descricao;
     private $tipo;
     private $testes;
@@ -34,18 +34,18 @@ class Equipamento
     /**
      * @return mixed
      */
-    public function getNome()
+    public function getModelo()
     {
-        return $this->nome;
+        return $this->modelo;
     }
 
     /**
-     * @param mixed $nome 
+     * @param mixed $modelo 
      * @return self
      */
-    public function setNome($nome): self
+    public function setModelo($modelo): self
     {
-        $this->nome = $nome;
+        $this->modelo = $modelo;
         return $this;
     }
 

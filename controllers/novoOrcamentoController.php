@@ -15,33 +15,38 @@ $equipamentoDAO = new EquipamentoDAO();
 $testeDAO = new TesteDAO();
 $pedidoDAO = new PedidoDAO();
 
-echo "<pre>";
+if (!isset($_POST['nome']) or !isset($_POST['descricao']) or !isset($_POST['tipo']) or !isset($_POST['testes'])) {
+    header('Location: ' . BASE_URL . 'novo-orcamento');
+    exit();
+}
 
 $nome = $_POST['nome'];
 $descricao = $_POST['descricao'];
 $tipo = $_POST['tipo'];
 $testes = $_POST['testes'];
 
-// var_dump($nome);
-// var_dump($descricao);
-// var_dump($tipo);
-// var_dump($testes);
+if (count($nome) != count($descricao) or count($nome) != count($tipo) or count($nome) != count($testes)) {
+    header('Location: ' . BASE_URL . 'novo-orcamento');
+    exit();
+}
+
 
 $equipamentos = array();
 
 for ($i = 0; $i < count($nome); $i++) {
     $equipamento = new Equipamento();
-    $equipamento->setNome($nome[$i])
+    $equipamento->setModelo($nome[$i])
         ->setDescricao($descricao[$i])
         ->setTipo($tipo[$i]);
     foreach ($testes[$i] as $teste) {
         $teste = $testeDAO->findById($teste);
-        $equipamento->addTeste($teste);
+        if ($teste->getTipoEquipamento() == $equipamento->getTipo()) {
+            $equipamento->addTeste($teste);
+        }
     }
     $equipamentos[] = $equipamento;
 }
 
-// var_dump($equipamentos);
 $total = 0;
 foreach ($equipamentos as $equipamento) {
     $total += $equipamento->getTotalValorTestes();
@@ -52,14 +57,18 @@ $hoje = $hoje->format('Y-m-d');
 
 $pedido = new Pedido();
 
-$pedido->setNumero(9)
+$pedido->setNumero($pedidoDAO->proximoNumero())
     ->setTotal($total)
     ->setStatus(StatusPedidoEnum::PENDENTE)
     ->setData($hoje)
     ->setEquipamentos($equipamentos);
 
 $pedido = $pedidoDAO->create($pedido, $user->getId());
-var_dump($pedido);
 
-
-echo "</pre>";
+if ($pedido->getId() != null) {
+    header('Location: ' . BASE_URL . 'orcamentos');
+    exit();
+} else {
+    header('Location: ' . BASE_URL . 'novo-orcamento');
+    exit();
+}

@@ -11,9 +11,23 @@ function getPedido(bool $status, string $nome, int $tipo)
         $class = 'em-and';
     }
 
+    switch ($tipo) {
+        case TipoEquipamentoEnum::COLETOR:
+            $img = './assets/imgs/coletor.jpeg';
+            break;
+        case TipoEquipamentoEnum::RESERVATORIO:
+            $img = './assets/imgs/reservatorio.png';
+            break;
+        case TipoEquipamentoEnum::MODULO:
+            $img = './assets/imgs/modulo.png';
+            break;
+    }
+
     echo <<<HTML
         <div class="col-1 px-1 py-1 img-equip">
-            <img class="w-100" src="./assets/imgs/placeholder.png" alt="">
+            <div class="imagem">
+                <img class="w-100" src="{$img}" alt="">
+            </div>
             <p>{$nome}</p>
             <div class="status-equip {$class}">
                 {$text}
