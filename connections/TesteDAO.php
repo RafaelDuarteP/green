@@ -119,7 +119,7 @@ class TesteDAO
 
     public function findByEquipamento(int $id): array
     {
-        $sql = "SELECT teste.id_teste, teste.valor, teste.descricao, equipamento_teste.status, equipamento_teste.atualizado_em, teste.nome, teste.tipo_equipamento FROM teste JOIN equipamento_teste ON teste.id_teste = equipamento_teste.id_teste WHERE equipamento_teste.id_equipamento = ?";
+        $sql = "SELECT teste.id_teste, teste.valor, teste.descricao, equipamento_teste.status, equipamento_teste.atualizado_em, teste.nome, teste.tipo_equipamento FROM teste JOIN equipamento_teste ON teste.id_teste = equipamento_teste.id_teste WHERE equipamento_teste.id_equipamento = ? ORDER BY equipamento_teste.atualizado_em";
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->bind_param('i', $id);
         $stmt->execute();

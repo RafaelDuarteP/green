@@ -2,6 +2,7 @@
 
 require_once 'connections/Connection.php';
 require_once 'models/Cliente.php';
+require_once 'utils/converter.php';
 
 // Adiciona os assets
 include 'components/head.php';

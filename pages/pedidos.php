@@ -46,10 +46,10 @@ include_once "./components/header.php";
                                 <?php echo $pedido->getNumero() ?>
                             </strong></span>
                         <span>
-                            <?php echo $pedido->getData() ?>
+                            <?php echo converterData($pedido->getData()) ?>
                         </span>
                         <span>Total: <strong>R$
-                                <?php echo $pedido->getTotal() ?>
+                                <?php echo  converterNumeroFloat($pedido->getTotal()) ?>
                             </strong></span>
                     </div>
                     <div class="divisor"></div>
@@ -84,7 +84,7 @@ include_once "./components/header.php";
                                                     <?php echo $teste->getNome() ?>
                                                 </p>
                                                 <p>
-                                                    <?php echo $teste->getData() ?>
+                                                    <?php echo converterDataHora($teste->getData()) ?>
                                                 </p>
                                             </div>
                                         </li>
