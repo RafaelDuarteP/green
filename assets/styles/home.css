@@ -27,3 +27,23 @@ section {
     right: 30;
     top: 35%;
 }
+
+.titulo {
+    border-bottom: 1px solid #181818;
+}
+
+.card-cliente {
+    background: #fff;
+    border-radius: 60px;
+    padding: 5px 30px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.fa-circle-check {
+    color: #004226;
+}
+
+.fa-circle-xmark {
+    color: #ae0000;
+}

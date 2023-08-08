@@ -30,6 +30,13 @@
     position: absolute;
 }
 
+.pedido-header>span:nth-child(4) {
+    right: 5;
+    top: 20;
+    position: absolute;
+    font-size: 11pt;
+}
+
 .pedido-header>span>strong {
     font-size: larger;
 }
@@ -179,4 +186,30 @@
     position: absolute;
     z-index: 2;
     border-radius: 50px;
+}
+
+.btn {
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    padding: 0px 5px;
+    font-size: 10pt;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+.btn.btn-finalizar {
+    background: #004226;
+}
+
+.btn.btn-disabled {
+    background: #a5a5a5;
+    cursor: default;
+}
+
+.btn.btn-disabled:hover {
+    transform: none;
 }

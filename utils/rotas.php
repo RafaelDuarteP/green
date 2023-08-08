@@ -19,6 +19,14 @@ $access_pages = array(
     'controller/cadastro' => 'controllers/cadastroController.php',
     'auth/confirmacao' => 'controllers/confirmacaoController.php',
     'confirmacao' => 'pages/confirmacao.php',
+    'restricted/login' => 'restricted_pages/login.php',
 );
 
-$control_pages = array();
+$control_pages = array(
+    'restricted/home' => 'restricted_pages/home.php',
+    'restricted/orcamentos' => 'restricted_pages/orcamentos.php',
+    'restricted/pedidos' => 'restricted_pages/pedidos.php',
+    'restricted/testes' => 'restricted_pages/testes.php',
+    'restricted/alterarTeste' => 'restricted_pages/alterar_teste.php',
+    'restricted/logout' => 'controllers/logoutController.php',
+);

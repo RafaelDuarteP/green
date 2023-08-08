@@ -100,6 +100,34 @@ class ClienteDAO
         return $cliente;
     }
 
+    public function findAll(): array
+    {
+        $query = "SELECT id_cliente, email, razao_social, cnpj, nome, verificado FROM cliente";
+
+        $stmt = $this->db->getConn()->prepare($query);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $clientes = [];
+
+        $data = $result->fetch_all();
+
+        foreach ($data as $item) {
+            $cliente = new Cliente();
+            $cliente->setId($item[0])
+                ->setEmail($item[1])
+                ->setRazaoSocial($item[2])
+                ->setCnpj($item[3])
+                ->setNome($item[4])
+                ->setVerificado($item[5]);
+
+            $clientes[] = $cliente;
+        }
+
+        return $clientes;
+    }
+
     public function findByToken(string $token): int
     {
         $query = "SELECT id_cliente FROM cliente WHERE token = ?";
@@ -151,7 +179,6 @@ class ClienteDAO
     public function login(string $login, string $senha): bool
     {
         $cliente = $this->findByEmailOrCNPJ($login);
-        echo $cliente->getSenha();
         if ($cliente && password_verify($senha, $cliente->getSenha())) {
             return true;
         } else {

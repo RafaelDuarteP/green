@@ -49,7 +49,7 @@ include_once "./components/header.php";
                             <?php echo converterData($pedido->getData()) ?>
                         </span>
                         <span>Total: <strong>R$
-                                <?php echo  converterNumeroFloat($pedido->getTotal()) ?>
+                                <?php echo converterNumeroFloat($pedido->getTotal()) ?>
                             </strong></span>
                     </div>
                     <div class="divisor"></div>

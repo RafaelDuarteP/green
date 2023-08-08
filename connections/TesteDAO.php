@@ -164,7 +164,7 @@ class TesteDAO
         return $testes;
     }
 
-    public function updateStatus(int $id, int $status): bool
+    public function updateStatus(int $id_equipamento, int $id_teste, int $status): bool
     {
         switch ($status) {
             case StatusTesteEnum::EM_ANDAMENTO:
@@ -177,9 +177,9 @@ class TesteDAO
                 $status = "EM_ANDAMENTO";
                 break;
         }
-        $sql = "UPDATE equipamento_teste SET status = ? WHERE id_equipamento = ?";
+        $sql = "UPDATE equipamento_teste SET status = ? WHERE id_equipamento = ? AND id_teste = ?";
         $stmt = $this->db->getConn()->prepare($sql);
-        $stmt->bind_param('si', $status, $id);
+        $stmt->bind_param('sii', $status, $id_equipamento, $id_teste);
         return $stmt->execute();
     }
 

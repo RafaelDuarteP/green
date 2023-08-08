@@ -29,3 +29,19 @@ function converterNumeroFloat($numero)
 
     return $numeroFormatado;
 }
+
+function formatarCnpj($cnpj)
+{
+    // Remove quaisquer caracteres não numéricos do CNPJ original
+    $cnpj = preg_replace("/[^0-9]/", "", $cnpj);
+
+    // Formatação do CNPJ: XX.XXX.XXX/YYYY-ZZ
+    // Onde X representa os 8 primeiros dígitos e YZ representa os 4 últimos dígitos
+    $formattedCnpj = substr($cnpj, 0, 2) . '.' .
+        substr($cnpj, 2, 3) . '.' .
+        substr($cnpj, 5, 3) . '/' .
+        substr($cnpj, 8, 4) . '-' .
+        substr($cnpj, 12, 2);
+
+    return $formattedCnpj;
+}

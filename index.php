@@ -2,6 +2,7 @@
 
 require_once 'connections/Connection.php';
 require_once 'models/Cliente.php';
+require_once 'models/UserControl.php';
 require_once 'utils/converter.php';
 require_once 'utils/rotas.php';
 
@@ -37,6 +38,7 @@ if (strpos($path, "controller") !== false && $_SERVER['REQUEST_METHOD'] === 'GET
     exit;
 }
 
+// Verifica se o usuário é um administrador
 if (isset($_SESSION['control']) && $_SESSION['control'] === true) {
     if (array_key_exists($path, $control_pages)) {
         include $control_pages[$path];
@@ -61,7 +63,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
     }
     // Verifica se a URL corresponde a uma página conhecida
     if (array_key_exists($path, $pages)) {
-        // Se a URL corresponder a uma página conhecida, inclui o arquivo PHP correspondente
         include $pages[$path];
     } else if (array_key_exists($path, $access_pages)) {
         header('Location: ' . BASE_URL . 'home');
