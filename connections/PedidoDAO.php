@@ -49,14 +49,19 @@ class PedidoDAO
         return $pedido;
     }
 
-    public function findById(int $id): Pedido
+    public function findById(int $id): ?Pedido
     {
         $equipamentoDao = new EquipamentoDAO();
         $sql = "SELECT * FROM pedido WHERE id_pedido = ?";
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->bind_param('i', $id);
         $stmt->execute();
-        $data = $stmt->fetch_assoc();
+
+        $result = $stmt->get_result();
+        if ($result->num_rows === 0) {
+            return null;
+        }
+        $data = $result->fetch_assoc();
         switch ($data['status']) {
             case "PENDENTE":
                 $status = StatusPedidoEnum::PENDENTE;

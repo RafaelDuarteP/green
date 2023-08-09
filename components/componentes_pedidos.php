@@ -73,3 +73,25 @@ function getPedidoRestricted(bool $status, string $nome, int $tipo)
     HTML;
 
 }
+
+function getImgPedido(int $tipo)
+{
+    switch ($tipo) {
+        case TipoEquipamentoEnum::COLETOR:
+            $img = '../assets/imgs/coletor.jpeg';
+            break;
+        case TipoEquipamentoEnum::RESERVATORIO:
+            $img = '../assets/imgs/reservatorio.png';
+            break;
+        case TipoEquipamentoEnum::MODULO:
+            $img = '../assets/imgs/modulo.png';
+            break;
+    }
+
+    echo <<<HTML
+            <div class="imagem col-2">
+                <img class="w-100" src="{$img}" alt="">
+            </div>
+HTML;
+
+}

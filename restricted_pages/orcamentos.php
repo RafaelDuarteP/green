@@ -47,15 +47,15 @@ include_once "./components/header_restricted.php";
                                 getStatus($pedido->getStatus());
                                 ?>
                             </div>
-                            <button class="btn-baixar">Visualizar</button>
+                            <a href="orcamento?id=<?php echo $pedido->getId() ?>" class="btn btn-baixar">Visualizar</a>
                             <p>valor: R$ <span>
                                     <?php echo converterNumeroFloat($pedido->getTotal()) ?>
                                 </span> </p>
                             <p>qtd equipamentos: <span>
                                     <?php echo count($pedido->getEquipamentos()) ?>
                                 </span> </p>
-                            <button class="btn-baixar">Editar</button>
-                            <p>Cliente: R$ <span>
+                            <a href="editarOrcamento?id=<?php echo $pedido->getId() ?>" class="btn btn-baixar">Editar</a>
+                            <p>Cliente: <span>
                                     <?php echo $cliente->getNome() ?>
                                 </span> </p>
                             <p>Contato: <span>

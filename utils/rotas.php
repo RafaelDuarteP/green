@@ -26,7 +26,9 @@ $control_pages = array(
     'restricted/home' => 'restricted_pages/home.php',
     'restricted/orcamentos' => 'restricted_pages/orcamentos.php',
     'restricted/pedidos' => 'restricted_pages/pedidos.php',
+    'restricted/orcamento' => 'restricted_pages/visualizar_orcamento.php',
     'restricted/testes' => 'restricted_pages/testes.php',
+    'restricted/adms' => 'restricted_pages/adm.php',
     'restricted/alterarTeste' => 'restricted_pages/alterar_teste.php',
     'restricted/logout' => 'controllers/logoutController.php',
 );

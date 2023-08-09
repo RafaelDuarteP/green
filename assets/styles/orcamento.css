@@ -29,7 +29,8 @@
     gap: 10px;
 }
 
-.card-orcamento button {
+.card-orcamento button,
+.card-orcamento .btn {
     font-weight: 800;
     color: #fff;
     height: fit-content;
@@ -38,19 +39,23 @@
     font-size: 12pt;
 }
 
-.card-orcamento button.btn-baixar {
+.card-orcamento button.btn-baixar,
+.card-orcamento .btn.btn-baixar {
     background: #004226;
 }
 
-.card-orcamento button.btn-cancelar {
+.card-orcamento button.btn-cancelar,
+.card-orcamento .btn.btn-cancelar {
     background: #ae0000;
 }
 
-.card-orcamento button.btn-assinar {
+.card-orcamento button.btn-assinar,
+.card-orcamento .btn.btn-assinar {
     background: #fc0;
 }
 
-.card-orcamento button.btn-disabled {
+.card-orcamento button.btn-disabled,
+.card-orcamento .btn.btn-disabled {
     background: #a5a5a5;
     cursor: default;
 }
@@ -208,4 +213,30 @@
 
 .btn-finalizar:hover {
     background: #f5b900;
+}
+
+.orcamento {
+    background: #fff;
+    padding: 30px 10px;
+    border-radius: 10px;
+}
+
+.equipamentos {
+    border-bottom: #333 1px solid;
+}
+
+.imagem {
+    background-color: #a5a5a57a;
+    border-radius: 30px;
+}
+
+.imagem img {
+    aspect-ratio: 1/1;
+    object-fit: scale-down;
+    mix-blend-mode: multiply;
+}
+
+.num-pedido {
+    font-size: 12pt;
+    font-weight: 800;
 }
