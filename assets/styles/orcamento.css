@@ -30,7 +30,7 @@
 }
 
 .card-orcamento button,
-.card-orcamento .btn {
+.btn {
     font-weight: 800;
     color: #fff;
     height: fit-content;
@@ -40,22 +40,22 @@
 }
 
 .card-orcamento button.btn-baixar,
-.card-orcamento .btn.btn-baixar {
+.btn.btn-baixar {
     background: #004226;
 }
 
 .card-orcamento button.btn-cancelar,
-.card-orcamento .btn.btn-cancelar {
+.btn.btn-cancelar {
     background: #ae0000;
 }
 
 .card-orcamento button.btn-assinar,
-.card-orcamento .btn.btn-assinar {
+.btn.btn-assinar {
     background: #fc0;
 }
 
 .card-orcamento button.btn-disabled,
-.card-orcamento .btn.btn-disabled {
+.btn.btn-disabled {
     background: #a5a5a5;
     cursor: default;
 }
@@ -238,5 +238,4 @@
 
 .num-pedido {
     font-size: 12pt;
-    font-weight: 800;
 }
