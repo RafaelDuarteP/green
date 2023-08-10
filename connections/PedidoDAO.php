@@ -245,6 +245,30 @@ class PedidoDAO
         return $pedidos;
     }
 
+    public function alterarStatus(int $id, int $status): bool
+    {
+        switch ($status) {
+            case StatusPedidoEnum::PENDENTE:
+                $status = "PENDENTE";
+                break;
+            case StatusPedidoEnum::APROVADO:
+                $status = "APROVADO";
+                break;
+            case StatusPedidoEnum::AGUARDANDO:
+                $status = "AGUARDANDO";
+                break;
+            case StatusPedidoEnum::CANCELADO:
+                $status = "CANCELADO";
+                break;
+        }
+        $sql = "UPDATE pedido SET status = ? WHERE id_pedido = ?";
+        $stmt = $this->db->getConn()->prepare($sql);
+        $stmt->bind_param('si', $status, $id);
+
+        return $stmt->execute();
+
+    }
+
     public function proximoNumero(): int
     {
         $sql = "SELECT proximo_numero()";
