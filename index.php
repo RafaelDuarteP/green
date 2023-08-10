@@ -9,6 +9,9 @@ require_once 'utils/rotas.php';
 // Adiciona os assets
 include 'components/head.php';
 
+
+include 'components/scripts.php';
+
 // Cria a conexão com o banco de dados
 Connection::getInstance();
 
@@ -80,5 +83,3 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
     header('Location: ' . BASE_URL . 'login');
     exit;
 }
-
-include 'components/scripts.php';

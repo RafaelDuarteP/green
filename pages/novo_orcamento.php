@@ -15,24 +15,24 @@ include_once "./components/header.php";
 ?>
 
 <script>
-var lastAdd = 0;
+    var lastAdd = 0;
 
-function addEquipamento() {
-    lastAdd++;
-    let equipamento = document.querySelector(".equipamento");
-    let clone = equipamento.cloneNode(true);
-    clone.querySelector('.titulo-equipamento').innerHTML = "Equipamento #" + (lastAdd + 1) + ":";
-    clone.querySelector(".nome input").value = "";
-    clone.querySelector(".descricao input").value = "";
-    clone.querySelector(".tipo select").value = 1;
-    clone.querySelectorAll("input[name='testes[0][]']").forEach(e => {
-        e.checked = false;
-        e.name = "testes[" + lastAdd + "][]";
-    });
+    function addEquipamento() {
+        lastAdd++;
+        let equipamento = document.querySelector(".equipamento");
+        let clone = equipamento.cloneNode(true);
+        clone.querySelector('.titulo-equipamento').innerHTML = "Equipamento #" + (lastAdd + 1) + ":";
+        clone.querySelector(".nome input").value = "";
+        clone.querySelector(".descricao input").value = "";
+        clone.querySelector(".tipo select").value = 1;
+        clone.querySelectorAll("input[name='testes[0][]']").forEach(e => {
+            e.checked = false;
+            e.name = "testes[" + lastAdd + "][]";
+        });
 
-    var form = document.querySelector("form");
-    form.insertBefore(clone, form.querySelector(".area-botao"));
-}
+        var form = document.querySelector("form");
+        form.insertBefore(clone, form.querySelector(".area-botao"));
+    }
 </script>
 
 <section class="container-fluid px-4">
@@ -74,12 +74,12 @@ function addEquipamento() {
                                 $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::COLETOR);
                                 foreach ($testes as $teste):
                                     ?>
-                                <label class="form-label">
-                                    <input class="form-check-input" type="checkbox" name="testes[0][]"
-                                        value="<?php echo $teste->getId() ?>">
-                                    <?php echo $teste->getNome(); ?>
-                                </label>
-                                <?php
+                                    <label class="form-label">
+                                        <input class="form-check-input" type="checkbox" name="testes[0][]"
+                                            value="<?php echo $teste->getId() ?>">
+                                        <?php echo $teste->getNome(); ?>
+                                    </label>
+                                    <?php
                                 endforeach;
                                 ?>
                             </div>
@@ -89,12 +89,12 @@ function addEquipamento() {
                                 $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::RESERVATORIO);
                                 foreach ($testes as $teste):
                                     ?>
-                                <label class="form-label">
-                                    <input class="form-check-input" type="checkbox" name="testes[0][]"
-                                        value="<?php echo $teste->getId() ?>">
-                                    <?php echo $teste->getNome(); ?>
-                                </label>
-                                <?php
+                                    <label class="form-label">
+                                        <input class="form-check-input" type="checkbox" name="testes[0][]"
+                                            value="<?php echo $teste->getId() ?>">
+                                        <?php echo $teste->getNome(); ?>
+                                    </label>
+                                    <?php
                                 endforeach;
                                 ?>
                             </div>
@@ -104,12 +104,12 @@ function addEquipamento() {
                                 $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::MODULO);
                                 foreach ($testes as $teste):
                                     ?>
-                                <label class="form-label">
-                                    <input class="form-check-input" type="checkbox" name="testes[0][]"
-                                        value="<?php echo $teste->getId() ?>">
-                                    <?php echo $teste->getNome(); ?>
-                                </label>
-                                <?php
+                                    <label class="form-label">
+                                        <input class="form-check-input" type="checkbox" name="testes[0][]"
+                                            value="<?php echo $teste->getId() ?>">
+                                        <?php echo $teste->getNome(); ?>
+                                    </label>
+                                    <?php
                                 endforeach;
                                 ?>
                             </div>
