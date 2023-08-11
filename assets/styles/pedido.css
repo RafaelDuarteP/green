@@ -213,3 +213,17 @@
 .btn.btn-disabled:hover {
     transform: none;
 }
+
+.btn.btn-baixar {
+    font-weight: 800;
+    color: #fff;
+    height: fit-content;
+    border-radius: 10px;
+    border: none;
+    font-size: 12pt;
+    background: #004226;
+}
+
+.pedido-footer {
+    padding: 2vh 0;
+}
