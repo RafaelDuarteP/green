@@ -239,3 +239,14 @@
 .num-pedido {
     font-size: 12pt;
 }
+
+.voltar>button {
+    background: none;
+    border: none;
+    color: #333;
+
+}
+
+.voltar>button:hover {
+    text-decoration: underline;
+}

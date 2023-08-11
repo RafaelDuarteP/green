@@ -8,6 +8,7 @@ class Pedido
     private $total;
     private $status;
     private $equipamentos;
+    private $idCliente;
 
     /**
      * @return mixed
@@ -129,6 +130,24 @@ class Pedido
         if ($index !== false) {
             unset($this->equipamentos[$index]);
         }
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdCliente()
+    {
+        return $this->idCliente;
+    }
+
+    /**
+     * @param mixed $idCliente 
+     * @return self
+     */
+    public function setIdCliente($idCliente): self
+    {
+        $this->idCliente = $idCliente;
         return $this;
     }
 }

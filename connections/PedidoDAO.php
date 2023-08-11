@@ -84,6 +84,7 @@ class PedidoDAO
         }
         $pedido = new Pedido();
         $pedido->setId($data['id_pedido'])
+            ->setIdCliente($data['id_cliente'])
             ->setData($data['data'])
             ->setNumero($data['numero'])
             ->setTotal($data['total'])
