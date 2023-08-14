@@ -148,8 +148,10 @@ include_once "./components/header_restricted.php";
                         <div class="col-11 pedido mt-4">
                             <div class="pedido-header">
                                 <span>Pedido nº: <strong>
-                                        <?php echo $pedido->getNumero() ?> - FINALIZADO
-                                    </strong></span>
+                                        <?php echo $pedido->getNumero() ?>
+                                    </strong>
+                                </span>
+
                                 <span>
                                     <?php echo converterData($pedido->getData()) ?>
                                 </span>
@@ -159,6 +161,10 @@ include_once "./components/header_restricted.php";
                                 <span>Cliente: <strong>
                                         <?php echo $cliente->getNome() ?>
                                     </strong></span>
+                                <?php
+                                include_once "./components/status_orcamento.php";
+                                getStatus($pedido->getStatus());
+                                ?>
                             </div>
                             <div class="divisor"></div>
                             <div class="pedido-body">

@@ -227,3 +227,43 @@
 .pedido-footer {
     padding: 2vh 0;
 }
+
+.status-card {
+    background: #d9d9d9;
+    border-radius: 20px;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 110px;
+    top: 2px;
+}
+
+.caption {
+    display: inline-block;
+    margin: 0 0 0 5px !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+
+.icon i {
+    margin: auto auto;
+}
+
+.caption.finalizado {
+    color: #2ab514;
+}
+
+.icon.finalizado {
+    background: #2ab514;
+    clip-path: circle(50% at 50% 50%);
+}

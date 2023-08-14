@@ -39,6 +39,14 @@ function getStatus($status)
                 </div>
             HTML;
             break;
+        case StatusPedidoEnum::FINALIZADO:
+            echo <<<HTML
+                <div class="status-card">
+                    <div class="icon finalizado"><i class="fa-solid fa-check"></i></div>
+                    <p class="caption finalizado"> Finalizado</p>
+                </div>
+            HTML;
+            break;
     }
 
 
