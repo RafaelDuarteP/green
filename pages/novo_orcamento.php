@@ -14,26 +14,7 @@ require_once "./models/Teste.php";
 include_once "./components/header.php";
 ?>
 
-<script>
-    var lastAdd = 0;
-
-    function addEquipamento() {
-        lastAdd++;
-        let equipamento = document.querySelector(".equipamento");
-        let clone = equipamento.cloneNode(true);
-        clone.querySelector('.titulo-equipamento').innerHTML = "Equipamento #" + (lastAdd + 1) + ":";
-        clone.querySelector(".nome input").value = "";
-        clone.querySelector(".descricao input").value = "";
-        clone.querySelector(".tipo select").value = 1;
-        clone.querySelectorAll("input[name='testes[0][]']").forEach(e => {
-            e.checked = false;
-            e.name = "testes[" + lastAdd + "][]";
-        });
-
-        var form = document.querySelector("form");
-        form.insertBefore(clone, form.querySelector(".area-botao"));
-    }
-</script>
+<script src="./assets/scripts/novoOrcamento.js" defer></script>
 
 <section class="container-fluid px-4">
     <div class="row h-100 justify-content-evenly">
@@ -53,7 +34,8 @@ include_once "./components/header.php";
                     </div>
                     <div class="descricao col-5 mt-2">
                         <label class="form-label" for="descricao">Características:</label>
-                        <input class="form-control" type="text" name="descricao[]" id="descricao">
+                        <textarea class="form-control textarea" type="text" name="descricao[]" id="descricao"
+                            rows="3"></textarea>
                     </div>
                     <div class="tipo col-4 mt-2">
                         <label class="form-label" for="tipo">Tipo do equipamento:</label>
@@ -117,7 +99,7 @@ include_once "./components/header.php";
                     </div>
                 </div>
                 <div class="row justify-content-end area-botao">
-                    <button class="btn col-3" type="button" onclick="addEquipamento()">
+                    <button class="btn btn-add-equip col-3" type="button" onclick="addEquipamento()">
                         <i class="fa-solid fa-plus"></i>
                         Adicionar equipamento
                     </button>

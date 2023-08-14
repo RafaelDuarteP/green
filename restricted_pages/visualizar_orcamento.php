@@ -124,8 +124,8 @@ include_once "./components/header_restricted.php";
                             getImgPedido($equipamento->getTipo());
                             ?>
                     <p class="col-12 text-center">
-                        Descrição: <strong>
-                            <?php echo $equipamento->getDescricao(); ?>
+                        Descrição:</br> <strong>
+                            <?php echo nl2br($equipamento->getDescricao()); ?>
                         </strong>
                     </p>
                     <h4 class="col-12 text-center">

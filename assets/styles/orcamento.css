@@ -163,7 +163,8 @@
 }
 
 .form-orcamento input:focus,
-.form-orcamento select:focus {
+.form-orcamento select:focus,
+.form-orcamento textarea:focus {
     border-color: #333;
     border-width: 1.5px;
     outline: 0;
@@ -186,8 +187,16 @@
     color: #333;
 }
 
+.textarea {
+    resize: vertical;
+}
+
 .area-botao {
     padding-right: 5vw;
+}
+
+.btn-add-equip {
+    color: #333;
 }
 
 .btn:focus {
