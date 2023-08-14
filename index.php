@@ -9,77 +9,63 @@ require_once 'utils/rotas.php';
 // Adiciona os assets
 include 'components/head.php';
 
-
-include 'components/scripts.php';
-
-// Cria a conexão com o banco de dados
 Connection::getInstance();
-
-// Inicia a sessão
 session_start();
 
-// Define a URL base do projeto
 define('BASE_URL', '/green/');
 
-// Obtém a URL solicitada
 $url = $_SERVER['REQUEST_URI'];
+if (substr($url, -1) === '/' && $url != BASE_URL) {
+    $url = substr($url, 0, -1);
+    header('Location: ' . $url);
+}
+$url = str_ireplace(BASE_URL, '', $url);
 
-// Remove a barra no início da URL, se houver
-$url = str_replace(BASE_URL, '', $url);
-
-// Separa a URL em suas partes constituintes
 $url_parts = parse_url($url);
 $path = $url_parts['path'];
 $query = $url_parts['query'] ?? '';
-
 $user = $_SESSION['user'] ?? null;
 
-
-//verifica se o acesso é por POST
 if (strpos($path, "controller") !== false && $_SERVER['REQUEST_METHOD'] === 'GET') {
     header('Location: ' . BASE_URL);
     exit;
 }
 
-// Verifica se o usuário é um administrador
 if (isset($_SESSION['control']) && $_SESSION['control'] === true) {
+    if ($path == '' || $path == 'home' || $path == 'restricted') {
+        header('Location: ' . BASE_URL . 'restricted/home');
+        exit;
+    }
     if (array_key_exists($path, $control_pages)) {
         include $control_pages[$path];
     } else {
         http_response_code(404);
         include 'pages/404.php';
     }
-    exit;
-}
-
-// Verifica se a sessão está definida
-if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
-    // confirma se o usuário está verificado
+} elseif (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
     if (!$user->getVerificado() and $path != 'confirmacao' and $path != 'logout' and $path != 'auth/confirmacao') {
         header('Location: ' . BASE_URL . 'confirmacao');
         exit;
     }
-    // Redireciona para a página inicial se a URL estiver vazia
     if ($path == '') {
         header('Location: ' . BASE_URL . 'home');
         exit;
     }
-    // Verifica se a URL corresponde a uma página conhecida
     if (array_key_exists($path, $pages)) {
         include $pages[$path];
     } else if (array_key_exists($path, $access_pages)) {
         header('Location: ' . BASE_URL . 'home');
         exit;
     } else {
-        // Se a URL não corresponder a nenhuma página conhecida, retorna um erro 404
         http_response_code(404);
         include 'pages/404.php';
     }
-    // Verifica se a URL corresponde a uma página conhecida de acesso
-} else if (array_key_exists($path, $access_pages)) {
+} elseif (array_key_exists($path, $access_pages)) {
     include $access_pages[$path];
 } else {
-    // Redireciona para pagina de login se não tiver logado
     header('Location: ' . BASE_URL . 'login');
     exit;
 }
+
+
+include 'components/scripts.php';
