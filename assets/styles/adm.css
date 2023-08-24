@@ -1,0 +1,64 @@
+.btn:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.btn:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.btn.btn-primary {
+    color: #fff;
+    background: #004226;
+    text-decoration: none;
+    height: fit-content;
+    border-radius: 3vh;
+    border: none;
+    font-size: 12pt;
+}
+
+.btn.btn-primary:hover {
+    background: #005a3c;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.btn.btn-secondary {
+    color: #fff;
+    background: #a5a5a5;
+    text-decoration: none;
+    height: fit-content;
+    border-radius: 3vh;
+    border: none;
+    font-size: 12pt;
+}
+
+.btn.btn-secondary:hover {
+    background: #4b4b4b;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+#formNovo input,
+#formNovo select {
+    border-radius: 20px;
+}
+
+#formNovo input:focus,
+#formNovo select:focus {
+    border-color: #333;
+    border-width: 1.5px;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(33, 33, 33, .25);
+}
+
+div#modalNovo {
+    background: #000000a0;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 20px;
+}

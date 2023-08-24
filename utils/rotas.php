@@ -30,6 +30,7 @@ $control_pages = array(
     'restricted/testes' => 'restricted_pages/testes.php',
     'restricted/novoTeste' => 'restricted_pages/novo_teste.php',
     'restricted/adms' => 'restricted_pages/adm.php',
+    'restricted/novoAdm' => 'restricted_pages/novo_adm.php',
     'restricted/alterarTeste' => 'restricted_pages/alterar_teste.php',
     'restricted/alterarStatusPedido' => 'restricted_pages/alterar_status_pedido.php',
     'restricted/logout' => 'controllers/logoutController.php',

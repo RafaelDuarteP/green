@@ -47,7 +47,8 @@
                 <div class="col-8 my-0 form-check">
                     <input class="form-check-input" type="checkbox" name="termo" id="termo" value="">
                     <label class="form-check-label" for="termo">Li e aceito os
-                        <a href="https://www.pucminas.br/si/Paginas/politica-de-privacidade.aspx" target="_blank">termos de uso e política de privacidade </a>
+                        <a href="https://www.pucminas.br/si/Paginas/politica-de-privacidade.aspx" target="_blank">termos
+                            de uso e política de privacidade </a>
                     </label>
                 </div>
                 <div class="col-12 my-1">
