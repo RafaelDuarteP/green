@@ -62,7 +62,7 @@ class UserControlDAO
         return $userControls;
     }
 
-    public function findById(int $id): UserControl
+    public function findById(int $id): ?UserControl
     {
         $sql = "SELECT * FROM user_control WHERE id_user_control = ?";
         $stmt = $this->db->getConn()->prepare($sql);
@@ -72,7 +72,7 @@ class UserControlDAO
         $result = $stmt->get_result();
 
         if ($result->num_rows === 0) {
-            return new UserControl();
+            return null;
         }
 
         $data = $result->fetch_assoc();
