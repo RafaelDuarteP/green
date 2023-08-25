@@ -39,23 +39,23 @@ include_once "./components/header_restricted.php";
                 foreach ($users as $user):
                     ?>
 
-                <div class="row mt-4 card-cliente">
-                    <div class="col-4 mt-2 mb-2">Nome: <span>
-                            <?php echo $user->getNome() ?>
-                        </span>
+                    <div class="row mt-4 card-cliente">
+                        <div class="col-4 mt-2 mb-2">Nome: <span>
+                                <?php echo $user->getNome() ?>
+                            </span>
+                        </div>
+                        <div class="col-4 mt-2 mb-2">Email:
+                            <a href="mailto:<?php echo $user->getEmail() ?>">
+                                <?php echo $user->getEmail() ?>
+                            </a>
+                        </div>
+                        <div class="col-4 mt-2 text-end">
+                            <a href="editarAdm?id=<?php echo $user->getId() ?>">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-4 mt-2 mb-2">Email:
-                        <a href="mailto:<?php echo $user->getEmail() ?>">
-                            <?php echo $user->getEmail() ?>
-                        </a>
-                    </div>
-                    <div class="col-4 mt-2 text-end">
-                        <a href="#">
-                            <i class="fa-solid fa-pen"></i>
-                        </a>
-                    </div>
-                </div>
-                <?php
+                    <?php
                 endforeach;
                 ?>
             </div>
