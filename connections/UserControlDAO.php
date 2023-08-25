@@ -28,6 +28,22 @@ class UserControlDAO
         return $userControl;
     }
 
+    public function update(UserControl $userControl): UserControl
+    {
+        $query = "UPDATE user_control SET email = ?, senha = ?, nome = ? WHERE id_user_control = ?";
+
+        $stmt = $this->db->getConn()->prepare($query);
+        $id = $userControl->getId();
+        $email = $userControl->getEmail();
+        $senha = $userControl->getSenha();
+        $nome = $userControl->getNome();
+
+        $stmt->bind_param("sssi", $email, $senha, $nome, $id);
+        $stmt->execute();
+
+        return $userControl;
+    }
+
     public function findAll(): array
     {
         $sql = "SELECT * FROM user_control";
@@ -52,7 +68,14 @@ class UserControlDAO
         $stmt = $this->db->getConn()->prepare($sql);
         $stmt->bind_param('i', $id);
         $stmt->execute();
-        $data = $stmt->fetch_assoc();
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return new UserControl();
+        }
+
+        $data = $result->fetch_assoc();
         $userControl = new UserControl();
         $userControl->setId($data['id_user_control'])
             ->setEmail($data['email'])
@@ -85,7 +108,6 @@ class UserControlDAO
     public function login($email, $senha)
     {
         $userControl = $this->findByEmail($email);
-        var_dump($userControl->getSenha());
         if ($userControl === null) {
             return false;
         }

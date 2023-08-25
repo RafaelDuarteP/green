@@ -62,3 +62,19 @@ div#modalNovo {
     border: none;
     border-radius: 20px;
 }
+
+.error-message,
+.error-message-senha {
+    color: white;
+    background-color: #ae0000bf;
+    border-radius: 20px;
+    padding: 2px;
+
+}
+
+.success-message {
+    color: white;
+    background-color: #2ab514bf;
+    border-radius: 20px;
+    padding: 2px;
+}

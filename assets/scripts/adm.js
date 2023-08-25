@@ -11,6 +11,18 @@ $(document).ready(function () {
         }
     });
 
+    $("#novaSenha").on("input", function () {
+        if ($("#novaSenha").val().length < 8) {
+            $("#novaSenha").addClass("error");
+            $("#label-senha").addClass("error-message");
+            $("#error-message").removeClass("d-none");
+        } else {
+            $("#novaSenha").removeClass("error");
+            $("#label-senha").removeClass("error-message");
+            $("#error-message").addClass("d-none");
+        }
+    });
+
     // Verifica a igualdade das senhas quando as entradas mudam
     $("#senha, #confirmarSenha").on("input", function () {
         if ($("#senha").val() == $("#confirmarSenha").val()) {
