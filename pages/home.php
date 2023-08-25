@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./assets/styles/home.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/home.css">
 <title>Home</title>
 
 

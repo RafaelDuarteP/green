@@ -1,5 +1,7 @@
 <?php
 
+define('BASE_URL', '/green/');
+
 require_once 'connections/Connection.php';
 require_once 'models/Cliente.php';
 require_once 'models/UserControl.php';
@@ -12,7 +14,7 @@ include 'components/head.php';
 Connection::getInstance();
 session_start();
 
-define('BASE_URL', '/green/');
+
 
 $url = $_SERVER['REQUEST_URI'];
 if (substr($url, -1) === '/' && $url != BASE_URL) {

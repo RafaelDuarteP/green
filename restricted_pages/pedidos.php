@@ -5,8 +5,8 @@ require_once './models/Cliente.php';
 require_once './models/StatusPedido.php';
 ?>
 
-<link rel="stylesheet" href="../assets/styles/home.css">
-<link rel="stylesheet" href="../assets/styles/pedido.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/home.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/pedido.css">
 <title>ACESSO RESTRITO | Pedidos</title>
 
 <?php
@@ -232,5 +232,5 @@ include_once "./components/header_restricted.php";
         </div>
 
     </div>
-    <script src="../assets/scripts/pedido.js" defer></script>
+    <script src="<?php echo BASE_URL ?>assets/scripts/pedido.js" defer></script>
 </section>

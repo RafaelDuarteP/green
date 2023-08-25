@@ -13,13 +13,13 @@ function getPedido(bool $status, string $nome, int $tipo)
 
     switch ($tipo) {
         case TipoEquipamentoEnum::COLETOR:
-            $img = './assets/imgs/coletor.jpeg';
+            $img = BASE_URL.'assets/imgs/coletor.jpeg';
             break;
         case TipoEquipamentoEnum::RESERVATORIO:
-            $img = './assets/imgs/reservatorio.png';
+            $img = BASE_URL.'assets/imgs/reservatorio.png';
             break;
         case TipoEquipamentoEnum::MODULO:
-            $img = './assets/imgs/modulo.png';
+            $img = BASE_URL.'assets/imgs/modulo.png';
             break;
     }
 
@@ -50,13 +50,13 @@ function getPedidoRestricted(bool $status, string $nome, int $tipo)
 
     switch ($tipo) {
         case TipoEquipamentoEnum::COLETOR:
-            $img = '../assets/imgs/coletor.jpeg';
+            $img = BASE_URL.'assets/imgs/coletor.jpeg';
             break;
         case TipoEquipamentoEnum::RESERVATORIO:
-            $img = '../assets/imgs/reservatorio.png';
+            $img = BASE_URL.'assets/imgs/reservatorio.png';
             break;
         case TipoEquipamentoEnum::MODULO:
-            $img = '../assets/imgs/modulo.png';
+            $img = BASE_URL.'assets/imgs/modulo.png';
             break;
     }
 
@@ -78,13 +78,13 @@ function getImgPedido(int $tipo)
 {
     switch ($tipo) {
         case TipoEquipamentoEnum::COLETOR:
-            $img = '../assets/imgs/coletor.jpeg';
+            $img = BASE_URL.'assets/imgs/coletor.jpeg';
             break;
         case TipoEquipamentoEnum::RESERVATORIO:
-            $img = '../assets/imgs/reservatorio.png';
+            $img = BASE_URL.'assets/imgs/reservatorio.png';
             break;
         case TipoEquipamentoEnum::MODULO:
-            $img = '../assets/imgs/modulo.png';
+            $img = BASE_URL.'assets/imgs/modulo.png';
             break;
     }
 

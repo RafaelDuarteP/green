@@ -2,8 +2,8 @@
 require_once "./connections/PedidoDAO.php";
 ?>
 
-<link rel="stylesheet" href="./assets/styles/home.css">
-<link rel="stylesheet" href="./assets/styles/orcamento.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/home.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/orcamento.css">
 <title>Orçamentos</title>
 
 

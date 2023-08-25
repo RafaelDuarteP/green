@@ -4,8 +4,8 @@ require_once './connections/PedidoDAO.php';
 require_once './models/Cliente.php';
 ?>
 
-<link rel="stylesheet" href="../assets/styles/home.css">
-<link rel="stylesheet" href="../assets/styles/orcamento.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/home.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/orcamento.css">
 <title>ACESSO RESTRITO | Orçamentos</title>
 
 <?php
@@ -37,34 +37,34 @@ include_once "./components/header_restricted.php";
                     foreach ($pedidos as $pedido):
                         ?>
 
-                <div class="card-orcamento col-10 mt-3">
-                    <p>n°: <span>
-                            <?php echo $pedido->getNumero() ?>
-                        </span> </p>
-                    <div>status:
-                        <?php
+                        <div class="card-orcamento col-10 mt-3">
+                            <p>n°: <span>
+                                    <?php echo $pedido->getNumero() ?>
+                                </span> </p>
+                            <div>status:
+                                <?php
                                 include_once "./components/status_orcamento.php";
                                 getStatus($pedido->getStatus());
                                 ?>
-                    </div>
-                    <div></div>
-                    <p>valor: R$ <span>
-                            <?php echo converterNumeroFloat($pedido->getTotal()) ?>
-                        </span> </p>
-                    <p>qtd equipamentos: <span>
-                            <?php echo count($pedido->getEquipamentos()) ?>
-                        </span> </p>
-                    <a href="orcamento?id=<?php echo $pedido->getId() ?>" class="btn btn-baixar">Visualizar</a>
-                    <p>Cliente: <span>
-                            <?php echo $cliente->getNome() ?>
-                        </span> </p>
-                    <p>Contato: <span>
-                            <a href="mailto:<?php echo $cliente->getEmail() ?>"><?php echo $cliente->getEmail() ?></a>
-                        </span> </p>
-                    <div></div>
-                </div>
+                            </div>
+                            <div></div>
+                            <p>valor: R$ <span>
+                                    <?php echo converterNumeroFloat($pedido->getTotal()) ?>
+                                </span> </p>
+                            <p>qtd equipamentos: <span>
+                                    <?php echo count($pedido->getEquipamentos()) ?>
+                                </span> </p>
+                            <a href="orcamento?id=<?php echo $pedido->getId() ?>" class="btn btn-baixar">Visualizar</a>
+                            <p>Cliente: <span>
+                                    <?php echo $cliente->getNome() ?>
+                                </span> </p>
+                            <p>Contato: <span>
+                                    <a href="mailto:<?php echo $cliente->getEmail() ?>"><?php echo $cliente->getEmail() ?></a>
+                                </span> </p>
+                            <div></div>
+                        </div>
 
-                <?php
+                        <?php
                     endforeach;
                 endforeach;
                 ?>

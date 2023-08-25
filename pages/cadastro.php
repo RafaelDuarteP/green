@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="./assets/styles/login.css">
-<script src="./assets/scripts/cadastro.js" defer></script>
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/login.css">
+<script src="<?php echo BASE_URL ?>assets/scripts/cadastro.js" defer></script>
 <title>Cadastro</title>
 
 <section class="container-fluid">
@@ -60,7 +60,7 @@
 
         <div class="col-5 caption-login vh-100">
             <h1 class="titulo">Area do Cliente</h1>
-            <img class="logo-green" src="./assets/imgs/logo_green_typo.png" alt="Logo GREEN">
+            <img class="logo-green" src="<?php echo BASE_URL ?>assets/imgs/logo_green_typo.png" alt="Logo GREEN">
             <div class="infos">
                 <?php if (isset($_GET['erroClienteExistente'])): ?>
                     <p class="col-12 text-center info-message">Usuário já cadastrado</p>

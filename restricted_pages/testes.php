@@ -4,8 +4,8 @@ require_once "./connections/TesteDAO.php";
 require_once "./models/Teste.php";
 ?>
 
-<link rel="stylesheet" href="../assets/styles/home.css">
-<link rel="stylesheet" href="../assets/styles/teste.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/home.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/teste.css">
 <title>ACESSO RESTRITO | Testes</title>
 
 <?php
@@ -38,19 +38,19 @@ include_once "./components/header_restricted.php";
                         $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::COLETOR);
                         foreach ($testes as $teste):
                             ?>
-                        <tr>
-                            <td scope="row">
-                                <?php echo $teste->getNome() ?>
-                            </td>
-                            <td>
-                                <?php echo $teste->getDescricao() ?>
-                            </td>
-                            <td>
-                                R$
-                                <?php echo converterNumeroFloat($teste->getValor()) ?>
-                            </td>
-                        </tr>
-                        <?php
+                            <tr>
+                                <td scope="row">
+                                    <?php echo $teste->getNome() ?>
+                                </td>
+                                <td>
+                                    <?php echo $teste->getDescricao() ?>
+                                </td>
+                                <td>
+                                    R$
+                                    <?php echo converterNumeroFloat($teste->getValor()) ?>
+                                </td>
+                            </tr>
+                            <?php
                         endforeach;
                         ?>
                     </tbody>
@@ -70,19 +70,19 @@ include_once "./components/header_restricted.php";
                         $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::RESERVATORIO);
                         foreach ($testes as $teste):
                             ?>
-                        <tr>
-                            <td scope="row">
-                                <?php echo $teste->getNome() ?>
-                            </td>
-                            <td>
-                                <?php echo $teste->getDescricao() ?>
-                            </td>
-                            <td>
-                                R$
-                                <?php echo converterNumeroFloat($teste->getValor()) ?>
-                            </td>
-                        </tr>
-                        <?php
+                            <tr>
+                                <td scope="row">
+                                    <?php echo $teste->getNome() ?>
+                                </td>
+                                <td>
+                                    <?php echo $teste->getDescricao() ?>
+                                </td>
+                                <td>
+                                    R$
+                                    <?php echo converterNumeroFloat($teste->getValor()) ?>
+                                </td>
+                            </tr>
+                            <?php
                         endforeach;
                         ?>
                     </tbody>
@@ -102,19 +102,19 @@ include_once "./components/header_restricted.php";
                         $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::MODULO);
                         foreach ($testes as $teste):
                             ?>
-                        <tr>
-                            <td scope="row">
-                                <?php echo $teste->getNome() ?>
-                            </td>
-                            <td>
-                                <?php echo $teste->getDescricao() ?>
-                            </td>
-                            <td>
-                                R$
-                                <?php echo converterNumeroFloat($teste->getValor()) ?>
-                            </td>
-                        </tr>
-                        <?php
+                            <tr>
+                                <td scope="row">
+                                    <?php echo $teste->getNome() ?>
+                                </td>
+                                <td>
+                                    <?php echo $teste->getDescricao() ?>
+                                </td>
+                                <td>
+                                    R$
+                                    <?php echo converterNumeroFloat($teste->getValor()) ?>
+                                </td>
+                            </tr>
+                            <?php
                         endforeach;
                         ?>
                     </tbody>

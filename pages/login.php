@@ -1,12 +1,12 @@
-<link rel="stylesheet" href="./assets/styles/login.css">
-<script src="./assets/scripts/login.js" defer></script>
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/login.css">
+<script src="<?php echo BASE_URL ?>assets/scripts/login.js" defer></script>
 <title>Login</title>
 
 <section class="container-fluid">
     <div class="row justify-content-evenly">
         <div class="col-5 caption-login vh-100">
             <h1 class="titulo">Area do Cliente</h1>
-            <img class="logo-green" src="./assets/imgs/logo_green_typo.png" alt="Logo GREEN">
+            <img class="logo-green" src="<?php echo BASE_URL ?>assets/imgs/logo_green_typo.png" alt="Logo GREEN">
             <div class="infos">
                 <?php if (isset($_GET['notFind'])): ?>
                     <p class="col-12 text-center info-message">Usuário não encontrado</p>
@@ -39,7 +39,9 @@
                     <button class="btn-login" type="submit">Entrar</button>
                 </div>
                 <div class="col-12 my-3">
-                    <p class="text-center"><img class="brasao-puc" src="./assets/imgs/brasao_puc_minas.png" alt=""></p>
+                    <p class="text-center"><img class="brasao-puc"
+                            src="<?php echo BASE_URL ?>assets/imgs/brasao_puc_minas.png" alt="">
+                    </p>
                 </div>
             </form>
         </div>

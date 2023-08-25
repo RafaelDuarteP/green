@@ -5,8 +5,8 @@ require_once "./models/Teste.php";
 
 ?>
 
-<link rel="stylesheet" href="./assets/styles/home.css">
-<link rel="stylesheet" href="./assets/styles/orcamento.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/home.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>assets/styles/orcamento.css">
 <title>Novo Orçamento</title>
 
 
@@ -14,7 +14,7 @@ require_once "./models/Teste.php";
 include_once "./components/header.php";
 ?>
 
-<script src="./assets/scripts/novoOrcamento.js" defer></script>
+<script src="<?php echo BASE_URL ?>assets/scripts/novoOrcamento.js" defer></script>
 
 <section class="container-fluid px-4">
     <div class="row h-100 justify-content-evenly">
