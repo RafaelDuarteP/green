@@ -1,5 +1,6 @@
 <?php
 require_once './connections/ClienteDAO.php';
+require_once './connections/PedidoDAO.php';
 require_once './models/Cliente.php';
 ?>
 
@@ -54,6 +55,13 @@ include_once "./components/header_restricted.php";
                                 <?php else: ?>
                                     <i class="fa-solid fa-circle-xmark"></i>
                                 <?php endif; ?>
+                            </span>
+                        </div>
+                        <div class="col-4 mt-2">Pedidos feitos: <span>
+                                <?php
+                                $pedidoDao = new PedidoDAO();
+                                echo count($pedidoDao->findByCliente($cliente->getId()));
+                                ?>
                             </span>
                         </div>
                     </div>
