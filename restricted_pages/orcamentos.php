@@ -54,7 +54,8 @@ include_once "./components/header_restricted.php";
                             <p>qtd equipamentos: <span>
                                     <?php echo count($pedido->getEquipamentos()) ?>
                                 </span> </p>
-                            <a href="orcamento?id=<?php echo $pedido->getId() ?>" class="btn btn-baixar">Visualizar</a>
+                            <a href="orcamentos/orcamento?id=<?php echo $pedido->getId() ?>"
+                                class="btn btn-baixar">Visualizar</a>
                             <p>Cliente: <span>
                                     <?php echo $cliente->getNome() ?>
                                 </span> </p>

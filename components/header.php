@@ -4,7 +4,8 @@
             <img src="<?php echo BASE_URL ?>assets/imgs/logo_green_typo.png" alt="">
         </div>
         <div class="col-1">
-            <p> <a href="logout">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a> </p>
+            <p> <a href="<?php echo BASE_URL ?>logout">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </p>
         </div>
     </div>
 </header>

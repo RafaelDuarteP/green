@@ -25,14 +25,14 @@ include_once "./components/header_restricted.php";
                 <div class="col-12 titulo">
                     <div class="row">
                         <?php if (isset($_GET['error'])): ?>
-                            <div class="col-12 text-center error-message">
-                                Não foi possível editar o administrador, a senha está incorreta
-                            </div>
+                        <div class="col-12 text-center error-message">
+                            Não foi possível editar o administrador, a senha está incorreta
+                        </div>
                         <?php endif;
                         if (isset($_GET['success'])): ?>
-                            <div class="col-12 text-center success-message">
-                                Administrador editado com sucesso
-                            </div>
+                        <div class="col-12 text-center success-message">
+                            Administrador editado com sucesso
+                        </div>
                         <?php endif; ?>
                         <h1 class="col-9">Administradores</h1>
                         <button class="btn col-3" type="button" data-bs-toggle="modal" data-bs-target="#modalNovo">
@@ -49,23 +49,23 @@ include_once "./components/header_restricted.php";
                 foreach ($users as $user):
                     ?>
 
-                    <div class="row mt-4 card-cliente">
-                        <div class="col-4 mt-2 mb-2">Nome: <span>
-                                <?php echo $user->getNome() ?>
-                            </span>
-                        </div>
-                        <div class="col-4 mt-2 mb-2">Email:
-                            <a href="mailto:<?php echo $user->getEmail() ?>">
-                                <?php echo $user->getEmail() ?>
-                            </a>
-                        </div>
-                        <div class="col-4 mt-2 text-end">
-                            <a href="editarAdm?id=<?php echo $user->getId() ?>">
-                                <i class="fa-solid fa-pen"></i>
-                            </a>
-                        </div>
+                <div class="row mt-4 card-cliente">
+                    <div class="col-4 mt-2 mb-2">Nome: <span>
+                            <?php echo $user->getNome() ?>
+                        </span>
                     </div>
-                    <?php
+                    <div class="col-4 mt-2 mb-2">Email:
+                        <a href="mailto:<?php echo $user->getEmail() ?>">
+                            <?php echo $user->getEmail() ?>
+                        </a>
+                    </div>
+                    <div class="col-4 mt-2 text-end">
+                        <a href="adms/editar?id=<?php echo $user->getId() ?>">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                    </div>
+                </div>
+                <?php
                 endforeach;
                 ?>
             </div>
