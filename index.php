@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', '/green/');
+define('BASE_URL', '/');
 
 require_once 'connections/Connection.php';
 require_once 'models/Cliente.php';
