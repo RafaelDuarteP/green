@@ -1,6 +1,6 @@
 <?php
+define('BASE_URL', '/');
 try {
-    define('BASE_URL', '/');
 
     require_once 'connections/Connection.php';
     require_once 'models/Cliente.php';
@@ -13,8 +13,6 @@ try {
 
     Connection::getInstance();
     session_start();
-
-
 
     $url = $_SERVER['REQUEST_URI'];
     if (substr($url, -1) === '/' && $url != BASE_URL) {
@@ -73,6 +71,10 @@ try {
     include 'components/scripts.php';
 
 } catch (Exception $e) {
+    ob_clean();
+    http_response_code(500);
+
+    include 'components/head.php';
     include 'pages/500.php';
-    exit;
+    error_log("Erro: " . $e->getMessage());
 }
