@@ -1,0 +1,155 @@
+[26-Aug-2023 20:34:39 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:34:39 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:35:42 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:35:42 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:35:43 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:40:36 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:41:15 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:41:27 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:43:44 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:45:15 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:45:18 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:45:21 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:45:26 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:46:10 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:46:11 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:46:11 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:46:16 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:46:16 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:46:16 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:47:14 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(14): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:49:58 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(17): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 20:51:04 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES) in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php:17
+Stack trace:
+#0 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(17): mysqli->__construct('192.185.131.84', 'fcapuc64_greenC...', Object(SensitiveParameterValue), 'fcapuc64_green')
+#1 /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php(32): Connection->__construct()
+#2 /home1/fcapuc64/green.pucminas.br/public_html/index.php(17): Connection::getInstance()
+#3 {main}
+  thrown in /home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php on line 17
+[26-Aug-2023 21:30:58 America/Fortaleza] Erro: Access denied for user 'fcapuc64_greenCRUD'@'192.185.131.84' (using password: YES)
