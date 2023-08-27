@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', '/');
+define('BASE_URL', '/green/');
 try {
 
     require_once 'connections/Connection.php';
@@ -13,8 +13,6 @@ try {
 
     Connection::getInstance();
     session_start();
-
-
 
     $url = $_SERVER['REQUEST_URI'];
     if (substr($url, -1) === '/' && $url != BASE_URL) {

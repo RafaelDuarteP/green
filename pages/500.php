@@ -50,7 +50,6 @@
     <div class="container">
         <div class="row">
             <h1 class="col-12 text-center">Erro interno</h1>
-            <div class="divisor-error"></div>
             <p>Desculpe, ocorreu um erro no servidor. Por favor, tente novamente mais tarde ou entre em contato com o
                 suporte.
             </p>

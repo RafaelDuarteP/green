@@ -33,8 +33,7 @@ header a:hover {
     margin: 0 !important;
 }
 
-.sidebar .divisor,
-.divisor-error {
+.sidebar .divisor {
     border-bottom: solid 1px #333;
 }
 
