@@ -48,7 +48,7 @@ HTML;
 }
 function getSideBarRestricted(int $active)
 {
-    $actives = ['', '', '', '', ''];
+    $actives = ['', '', '', '', '', ''];
     $actives[$active - 1] = 'active';
     $url = BASE_URL;
 
@@ -82,6 +82,12 @@ function getSideBarRestricted(int $active)
         <a href="{$url}restricted/adms" class="col-12 link-card my-4 {$actives[4]}">
             <div class="link-text">
                 <p>Administradores</p> <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </a>
+        <div class="divisor col-11"></div>
+        <a href="{$url}restricted/config" class="col-12 link-card my-4 {$actives[5]}">
+            <div class="link-text">
+                <p>Configurações</p> <i class="fa-solid fa-chevron-right"></i>
             </div>
         </a>
         <div class="divisor col-11"></div>
