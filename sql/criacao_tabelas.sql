@@ -85,3 +85,10 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+CREATE TABLE IF NOT EXISTS mailer(
+id INT NOT NULL PRIMARY KEY,
+senha VARCHAR(128) NOT NULL
+);
+
+INSERT INTO mailer (id, senha) VALUES (1,'senha_nao_definida');
