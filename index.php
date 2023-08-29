@@ -76,5 +76,5 @@ try {
 
     include 'components/head.php';
     include 'pages/500.php';
-    error_log("Erro: " . $e->getMessage());
+    error_log("Erro: " . $e->getMessage() . "\n\t" . $e->getTraceAsString() . "\n\t" . $e->getFile() . "\n\t" . $e->getLine() . "\n\t" . $e->getCode());
 }
