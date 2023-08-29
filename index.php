@@ -1,4 +1,5 @@
 <?php
+ob_start();
 define('BASE_URL', '/green/');
 try {
 
@@ -8,18 +9,24 @@ try {
     require_once 'utils/converter.php';
     require_once 'utils/rotas.php';
 
+    Connection::getInstance();
+    session_start();
+
     // Adiciona os assets
     include 'components/head.php';
 
-    Connection::getInstance();
-    session_start();
+
 
     $url = $_SERVER['REQUEST_URI'];
     if (substr($url, -1) === '/' && $url != BASE_URL) {
         $url = substr($url, 0, -1);
         header('Location: ' . $url);
     }
-    $url = str_ireplace(BASE_URL, '', $url);
+
+    if (substr($url, 0, strlen(BASE_URL)) === BASE_URL) {
+        $url = substr($url, strlen(BASE_URL));
+    }
+
 
     $url_parts = parse_url($url);
     $path = $url_parts['path'];
@@ -76,5 +83,6 @@ try {
 
     include 'components/head.php';
     include 'pages/500.php';
-    error_log("Erro: " . $e->getMessage());
+    error_log("Erro: " . $e->getMessage() . "\n\t" . $e->getTraceAsString() . "\n\t" . $e->getFile() . "\n\t" . $e->getLine() . "\n\t" . $e->getCode());
 }
+ob_end_flush();
