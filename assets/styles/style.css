@@ -1,3 +1,7 @@
+* {
+    transition: all 0.05s ease-in-out !important;
+}
+
 header {
     background: #ffcc00;
     color: white;

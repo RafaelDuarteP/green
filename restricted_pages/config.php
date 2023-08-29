@@ -26,9 +26,13 @@ include_once "./components/header_restricted.php";
                 </div>
             </div>
 
-            <div class="row mt-4 card-cliente">
-                <button class="btn col-3" type="button" data-bs-toggle="modal" data-bs-target="#modalNovo">
-                    <i class="fa-solid fa-plus"></i> Atualizar senha do email</button>
+            <div class="row mt-4">
+                <ul class="options fa-ul">
+                    <li class="fa-solid fa-edit">
+                        <button class="btn option-config" type="button" data-bs-toggle="modal"
+                            data-bs-target="#modalNovo">Atualizar senha do email</button>
+                    </li>
+                </ul>
             </div>
 
 

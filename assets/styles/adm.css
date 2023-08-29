@@ -78,3 +78,23 @@ div#modalNovo {
     border-radius: 20px;
     padding: 2px;
 }
+
+.option-config {
+    text-decoration: underline !important;
+    font-size: large;
+}
+
+.option-config:hover {
+    color: #333;
+    transform: scale(1.1);
+}
+
+.option-list li {
+    text-transform: initial;
+}
+
+.card-cliente div:last-child a {
+    text-decoration: none;
+    color: #333;
+    font-size: 12pt;
+}
