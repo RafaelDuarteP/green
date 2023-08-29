@@ -24,7 +24,7 @@ include_once "./components/header.php";
         ?>
 
         <div class="col-9 form-orcamento">
-            <form action="controller/novo-orcamento" method="post">
+            <form action="<?php echo BASE_URL ?>controller/novo-orcamento" method="post">
                 <h2 class="text-center">Novo Orçamento</h2>
                 <div class="equipamento row justify-content-center mt-3">
                     <h3 class="titulo-equipamento">Equipamento #1:</h3>
@@ -56,12 +56,12 @@ include_once "./components/header.php";
                                 $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::COLETOR);
                                 foreach ($testes as $teste):
                                     ?>
-                                    <label class="form-label">
-                                        <input class="form-check-input" type="checkbox" name="testes[0][]"
-                                            value="<?php echo $teste->getId() ?>">
-                                        <?php echo $teste->getNome(); ?>
-                                    </label>
-                                    <?php
+                                <label class="form-label">
+                                    <input class="form-check-input" type="checkbox" name="testes[0][]"
+                                        value="<?php echo $teste->getId() ?>">
+                                    <?php echo $teste->getNome(); ?>
+                                </label>
+                                <?php
                                 endforeach;
                                 ?>
                             </div>
@@ -71,12 +71,12 @@ include_once "./components/header.php";
                                 $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::RESERVATORIO);
                                 foreach ($testes as $teste):
                                     ?>
-                                    <label class="form-label">
-                                        <input class="form-check-input" type="checkbox" name="testes[0][]"
-                                            value="<?php echo $teste->getId() ?>">
-                                        <?php echo $teste->getNome(); ?>
-                                    </label>
-                                    <?php
+                                <label class="form-label">
+                                    <input class="form-check-input" type="checkbox" name="testes[0][]"
+                                        value="<?php echo $teste->getId() ?>">
+                                    <?php echo $teste->getNome(); ?>
+                                </label>
+                                <?php
                                 endforeach;
                                 ?>
                             </div>
@@ -86,12 +86,12 @@ include_once "./components/header.php";
                                 $testes = $testeDAO->findByTipo(TipoEquipamentoEnum::MODULO);
                                 foreach ($testes as $teste):
                                     ?>
-                                    <label class="form-label">
-                                        <input class="form-check-input" type="checkbox" name="testes[0][]"
-                                            value="<?php echo $teste->getId() ?>">
-                                        <?php echo $teste->getNome(); ?>
-                                    </label>
-                                    <?php
+                                <label class="form-label">
+                                    <input class="form-check-input" type="checkbox" name="testes[0][]"
+                                        value="<?php echo $teste->getId() ?>">
+                                    <?php echo $teste->getNome(); ?>
+                                </label>
+                                <?php
                                 endforeach;
                                 ?>
                             </div>

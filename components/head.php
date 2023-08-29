@@ -11,4 +11,5 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js" defer></script>
+    <script src="<?php echo BASE_URL ?>assets/scripts/main.js" defer></script>
 </head>

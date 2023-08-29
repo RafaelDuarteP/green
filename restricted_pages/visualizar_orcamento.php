@@ -82,7 +82,7 @@ include_once "./components/header_restricted.php";
                             if ($pedido->getStatus() == StatusPedidoEnum::AGUARDANDO):
                                 ?>
 
-                        <form action="alterarStatusPedido" method="post" class="col-3">
+                        <form action="<?php echo BASE_URL ?>restricted/alterarStatusPedido" method="post" class="col-3">
                             <input type="hidden" name="id" value="<?php echo $pedido->getId() ?>">
                             <input type="hidden" name="status" value="<?php echo StatusPedidoEnum::APROVADO ?>">
                             <button type="submit" class="col-12 btn btn-baixar">
@@ -93,7 +93,7 @@ include_once "./components/header_restricted.php";
                             elseif ($pedido->getStatus() == StatusPedidoEnum::PENDENTE):
                                 ?>
 
-                        <form action="alterarStatusPedido" method="post" class="col-3">
+                        <form action="<?php echo BASE_URL ?>restricted/alterarStatusPedido" method="post" class="col-3">
                             <input type="hidden" name="id" value="<?php echo $pedido->getId() ?>">
                             <input type="hidden" name="status" value="<?php echo StatusPedidoEnum::AGUARDANDO ?>">
                             <button type="submit" class="col-12 btn btn-assinar">
@@ -101,7 +101,7 @@ include_once "./components/header_restricted.php";
                             </button>
                         </form>
 
-                        <form action="alterarStatusPedido" method="post" class="col-3">
+                        <form action="<?php echo BASE_URL ?>restricted/alterarStatusPedido" method="post" class="col-3">
                             <input type="hidden" name="id" value="<?php echo $pedido->getId() ?>">
                             <input type="hidden" name="status" value="<?php echo StatusPedidoEnum::CANCELADO ?>">
                             <button type="submit" class="col-12 btn btn-cancelar">

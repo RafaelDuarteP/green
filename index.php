@@ -12,6 +12,10 @@ try {
     Connection::getInstance();
     session_start();
 
+    if (!isset($_SESSION['cookie_accepted'])) {
+        $_SESSION['cookie_accepted'] = true;
+    }
+
     // Adiciona os assets
     include 'components/head.php';
 
