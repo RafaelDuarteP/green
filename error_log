@@ -180,3 +180,8 @@ Stack trace:
 	/home1/fcapuc64/green.pucminas.br/public_html/connections/Connection.php
 	17
 	1045
+[29-Aug-2023 12:02:26 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home1/fcapuc64/green.pucminas.br/public_html/index.php on line 15
+[29-Aug-2023 12:02:26 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/fcapuc64/green.pucminas.br/public_html/components/head.php:1) in /home1/fcapuc64/green.pucminas.br/public_html/index.php on line 66
+[29-Aug-2023 12:03:07 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home1/fcapuc64/green.pucminas.br/public_html/index.php on line 15
+[29-Aug-2023 12:03:07 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/fcapuc64/green.pucminas.br/public_html/components/head.php:1) in /home1/fcapuc64/green.pucminas.br/public_html/index.php on line 66
+[29-Aug-2023 12:09:33 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/fcapuc64/green.pucminas.br/public_html/components/head.php:1) in /home1/fcapuc64/green.pucminas.br/public_html/index.php on line 68
