@@ -14,7 +14,7 @@ class MailerDAO
         $dotenv = Dotenv::createImmutable('./');
         $dotenv->load();
 
-        $this->key = $_ENV['MAILER_KEY'];
+        $this->key = $_ENV['MAIL_KEY'];
     }
 
     public function updateSenha(string $senha): bool
