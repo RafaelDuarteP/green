@@ -37,7 +37,7 @@ try {
     $query = $url_parts['query'] ?? '';
     $user = $_SESSION['user'] ?? null;
 
-    if (strpos($path, "controller") !== false && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (strpos($path, "controller") !== false && $_SERVER['REQUEST_METHOD'] === 'GET' && $path != 'controller/confirmacao') {
         header('Location: ' . BASE_URL);
         exit;
     }
