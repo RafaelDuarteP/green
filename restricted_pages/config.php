@@ -21,6 +21,16 @@ include_once "./components/header_restricted.php";
             <div class="row mt-4">
                 <div class="col-12 titulo">
                     <div class="row">
+                        <?php if (isset($_GET['error'])): ?>
+                        <div class="col-12 text-center error-message">
+                            Não foi possível alterar a senha
+                        </div>
+                        <?php endif;
+                        if (isset($_GET['success'])): ?>
+                        <div class="col-12 text-center success-message">
+                            Senha atualizada com sucesso
+                        </div>
+                        <?php endif; ?>
                         <h1 class="col-9">Configurações</h1>
                     </div>
                 </div>
